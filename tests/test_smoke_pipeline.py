@@ -26,6 +26,7 @@ def test_smoke_with_ablation_writes_main_and_ablation_outputs() -> None:
                 "--exclude",
                 "hpopt",
                 "--ablation",
+                "--robustness",
             ],
             cwd=str(paths.PROJECT_ROOT),
             env=env,
@@ -42,5 +43,8 @@ def test_smoke_with_ablation_writes_main_and_ablation_outputs() -> None:
         assert (output_root / "main" / "paper_summary.md").exists()
         assert (output_root / "ablation" / "ablation_summary.csv").exists()
         assert (output_root / "ablation" / "ablation_report.md").exists()
+        assert (output_root / "robustness" / "robustness_summary.json").exists()
+        assert (output_root / "robustness" / "selector_weight_perturbation.csv").exists()
+        assert (output_root / "robustness" / "leave_one_vr_out_summary.csv").exists()
     finally:
         shutil.rmtree(output_root, ignore_errors=True)
