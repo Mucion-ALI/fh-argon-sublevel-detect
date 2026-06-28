@@ -14,4 +14,11 @@ The ablation line should cite:
 - `outputs/ablation/ablation_report.md`
 - `outputs/ablation/selector_ablation_decision.json`
 
+The robustness line should cite:
+
+- `outputs/robustness/robustness_summary.json`
+- `outputs/robustness/selector_weight_perturbation.csv`
+- `outputs/robustness/selector_weight_perturbation_summary.csv`
+- `outputs/robustness/leave_one_vr_out_summary.csv`
+
 The retained physical response caveats are late-bias and high-retarding-voltage valley-depth. Other training telemetry may remain in checkpoint logs, but it is not used as a selection gate.

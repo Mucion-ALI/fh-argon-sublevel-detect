@@ -4,7 +4,7 @@
 
 这是用于论文复现的 Frank-Hertz 氩原子亚能级检测源码项目。
 
-本仓库采用“代码优先”策略：仓库只包含源码、输入数据表、测试与说明文档；训练 checkpoint 和生成的分析产物不提交。运行流程后，所有结果会重新生成到 `outputs/`。
+本仓库采用“代码优先”策略：仓库只包含源码、输入数据表、测试与说明文档；训练 checkpoint 和生成的分析产物不提交。运行流程后，主流程、消融流程和稳健性分析的 JSON/CSV 输出会重新生成到 `outputs/`；当前手稿的图级复现由论文 Supplementary Source Data package 支撑。
 
 ## 项目复现内容
 
@@ -12,6 +12,7 @@
 
 - 主基线：构建正向证据、可选超参调节、候选 K 扫描训练、自动后评估。
 - 消融基线：selector-only 消融，以及关闭 forward anchor gap 的 retrain，用于检验最终选择对正向锚点的依赖程度。
+- 稳健性基线：selector 权重扰动，以及固定主基线超参后的 leave-one-retarding-voltage-out 重训。
 
 物理响应审核只保留两项 caveat：late-bias 与 high-retarding-voltage valley-depth。
 
@@ -48,13 +49,19 @@ python run.py --mode fullscan
 python run.py --mode fullscan --ablation
 ```
 
-7. 若需要更快但不含超参调节的复现，可运行：
+7. 运行包含消融和稳健性证据的完整流程：
+
+```powershell
+python run.py --mode fullscan --ablation --robustness
+```
+
+8. 若需要更快但不含超参调节的复现，可运行：
 
 ```powershell
 python run.py --mode fullscan --exclude hpopt --ablation
 ```
 
-8. 论文结论应只从 `outputs/main/fullscan/decision.json`、`outputs/main/fullscan/model_selection_table.csv`、`outputs/main/paper_summary.json` 和 `outputs/ablation/ablation_summary.csv` 汇总。
+9. 论文结论应只从 `outputs/main/fullscan/decision.json`、`outputs/main/fullscan/model_selection_table.csv`、`outputs/main/paper_summary.json`、`outputs/ablation/ablation_summary.csv` 和 `outputs/robustness/robustness_summary.json` 汇总。
 
 ## 试验设计
 
@@ -79,13 +86,20 @@ python run.py --mode fullscan --exclude hpopt --ablation
 - no-forward-anchor-gap 条件会关闭 forward anchor priors 后重新训练。
 - 消融输出写入 `outputs/ablation/`。
 
+稳健性流程：
+
+- `--robustness` 在主基线已经生成 sweep table 之后运行。
+- selector 扰动在固定 rank-weight 网格下重新计算选择结果，不重新训练。
+- leave-one-Vr-out 每次排除一条阻滞电压曲线，复用主基线超参配置重训 K 候选，不在每折重新运行 hyperopt。
+- 稳健性输出写入 `outputs/robustness/`。
+
 设备和路径控制：
 
 ```powershell
 python run.py --mode fullscan --input data/argon/FHdata.xlsx --output outputs --device cpu
 ```
 
-`--device` 支持 `cpu`、`cuda` 或 `auto`。
+`--device` 支持 `cpu`、`cuda` 或 `auto`。项目默认使用 CPU 调度；`auto` 也按 CPU 处理，只有显式传入 `--device cuda` 时才会使用 CUDA。
 
 ## 数据分析方式
 
@@ -93,7 +107,7 @@ python run.py --mode fullscan --input data/argon/FHdata.xlsx --output outputs --
 
 - `outputs/main/fullscan/decision.json`：最终选择的 K 与决策诊断。
 - `outputs/main/fullscan/model_selection_table.csv`：用于模型选择的候选 K 评分表。
-- `outputs/main/fullscan/scan_summary.csv`：按候选 K 汇总拟合、交叉验证、结构和物理响应指标。
+- `outputs/main/fullscan/scan_summary.csv`：按候选 K 汇总拟合、保留的 seed-summary diagnostic、结构和物理响应指标。
 - `outputs/main/paper_summary.json`：面向论文写作的紧凑结论摘要。
 
 结构分析：
@@ -112,6 +126,13 @@ python run.py --mode fullscan --input data/argon/FHdata.xlsx --output outputs --
 - `outputs/ablation/ablation_summary.csv` 比较主基线、no-forward-anchor-gap retrain 和 selector-only 变体。
 - `outputs/ablation/selector_ablation_decision.json` 保存各消融组的详细 selector 决策。
 - `outputs/ablation/ablation_report.md` 是可直接阅读的消融报告。
+
+稳健性分析：
+
+- `outputs/robustness/selector_weight_perturbation.csv` 报告每个 rank-weight 扰动情景及其 selected K。
+- `outputs/robustness/selector_weight_perturbation_summary.csv` 汇总扰动情景下的 selected-K 分布。
+- `outputs/robustness/leave_one_vr_out_summary.csv` 报告每个留出阻滞电压曲线对应的 selected K 和关键指标。
+- `outputs/robustness/robustness_summary.json` 是面向论文写作的紧凑稳健性摘要。
 
 论文写作时应引用生成的 JSON/CSV 表，而不是中间 checkpoint。checkpoint 是运行时产物，已通过 `.gitignore` 排除。
 
@@ -142,6 +163,12 @@ python run.py --mode fullscan --exclude hpopt
 python run.py --mode fullscan --ablation
 ```
 
+主基线加消融与稳健性分析：
+
+```powershell
+python run.py --mode fullscan --ablation --robustness
+```
+
 ## 输出文件
 
 主基线证据：
@@ -158,6 +185,13 @@ python run.py --mode fullscan --ablation
 - `outputs/ablation/ablation_summary.csv`
 - `outputs/ablation/ablation_report.md`
 - `outputs/ablation/selector_ablation_decision.json`
+
+稳健性基线证据：
+
+- `outputs/robustness/robustness_summary.json`
+- `outputs/robustness/selector_weight_perturbation.csv`
+- `outputs/robustness/selector_weight_perturbation_summary.csv`
+- `outputs/robustness/leave_one_vr_out_summary.csv`
 
 ## 测试
 

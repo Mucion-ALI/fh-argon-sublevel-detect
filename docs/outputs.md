@@ -23,4 +23,14 @@
 - `ablation_metric_table.csv`
 - `energy_cluster_table.csv`
 
+`outputs/robustness/` contains robustness evidence:
+
+- `robustness_summary.json`: compact paper-facing robustness summary.
+- `robustness_summary.md`: human-readable robustness summary.
+- `selector_weight_perturbation.csv`: selected K under each rank-weight perturbation.
+- `selector_weight_perturbation_summary.csv`: selected-K distribution across perturbation scenarios.
+- `selector_weight_perturbation.json`: detailed selector decisions for all perturbation scenarios.
+- `leave_one_vr_out_summary.csv`: selected K and key metrics for each excluded retarding-voltage curve.
+- `leave_one_vr_out_summary.json`: detailed leave-one-Vr-out fold decisions.
+
 Generated checkpoint files are intentionally ignored by git.

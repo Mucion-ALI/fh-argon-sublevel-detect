@@ -4,7 +4,7 @@
 
 Frank-Hertz argon sublevel detection source project for paper reproduction.
 
-This repository is code-first: it contains source code, one input spreadsheet, tests, and documentation. Checkpoints and generated analysis products are not committed. Running the pipeline recreates all results under `outputs/`.
+This repository is code-first: it contains source code, one input spreadsheet, tests, and documentation. Checkpoints and generated analysis products are not committed. Running the pipeline recreates the main, ablation, and robustness JSON/CSV outputs under `outputs/`; figure-level reproduction for the manuscript is handled through the paper's supplementary Source Data package.
 
 ## What This Project Reproduces
 
@@ -12,6 +12,7 @@ The code fits and evaluates a multi-level Frank-Hertz argon model. It is organiz
 
 - Main baseline: forward-evidence preparation, optional hyperparameter optimization, training over candidate level counts, and automatic post-evaluation.
 - Ablation baseline: selector-only ablations plus a no-forward-anchor-gap retraining run to test how much the final decision depends on forward anchors.
+- Robustness baseline: selector weight perturbation plus leave-one-retarding-voltage-out retraining with the main baseline hyperparameters fixed.
 
 The retained physical response audit uses two gates: late-bias and high-retarding-voltage valley-depth.
 
@@ -48,13 +49,19 @@ python run.py --mode fullscan
 python run.py --mode fullscan --ablation
 ```
 
-7. For a faster but non-hyperoptimized reproduction, use:
+7. Run the full baseline with ablation and robustness evidence:
+
+```powershell
+python run.py --mode fullscan --ablation --robustness
+```
+
+8. For a faster but non-hyperoptimized reproduction, use:
 
 ```powershell
 python run.py --mode fullscan --exclude hpopt --ablation
 ```
 
-8. Summarize conclusions only from `outputs/main/fullscan/decision.json`, `outputs/main/fullscan/model_selection_table.csv`, `outputs/main/paper_summary.json`, and `outputs/ablation/ablation_summary.csv`.
+9. Summarize conclusions only from `outputs/main/fullscan/decision.json`, `outputs/main/fullscan/model_selection_table.csv`, `outputs/main/paper_summary.json`, `outputs/ablation/ablation_summary.csv`, and `outputs/robustness/robustness_summary.json`.
 
 ## Experiment Design
 
@@ -79,13 +86,20 @@ Ablation workflow:
 - The no-forward-anchor-gap condition retrains with forward anchor priors disabled.
 - Ablation outputs are written under `outputs/ablation/`.
 
+Robustness workflow:
+
+- `--robustness` runs after the main baseline has produced a sweep table.
+- Selector perturbation recomputes decisions under a fixed rank-weight grid without retraining.
+- Leave-one-Vr-out retrains K candidates after excluding one retarding-voltage curve at a time, using the main baseline hyperparameter configuration rather than running hyperopt again.
+- Robustness outputs are written under `outputs/robustness/`.
+
 Device and path controls:
 
 ```powershell
 python run.py --mode fullscan --input data/argon/FHdata.xlsx --output outputs --device cpu
 ```
 
-`--device` accepts `cpu`, `cuda`, or `auto`.
+`--device` accepts `cpu`, `cuda`, or `auto`. The project defaults to CPU scheduling; `auto` is treated as CPU, and CUDA is used only when `--device cuda` is explicitly requested.
 
 ## Data Analysis
 
@@ -93,7 +107,7 @@ Primary decision files:
 
 - `outputs/main/fullscan/decision.json`: selected level count and decision diagnostics.
 - `outputs/main/fullscan/model_selection_table.csv`: scored candidate K table used for model selection.
-- `outputs/main/fullscan/scan_summary.csv`: fit, cross-validation, structure, and physical-response metrics by candidate.
+- `outputs/main/fullscan/scan_summary.csv`: fit, retained seed-summary diagnostic, structure, and physical-response metrics by candidate.
 - `outputs/main/paper_summary.json`: compact paper-facing summary of the selected result.
 
 Structure analysis:
@@ -112,6 +126,13 @@ Ablation analysis:
 - `outputs/ablation/ablation_summary.csv` compares the main baseline, no-forward-anchor-gap retrain, and selector-only variants.
 - `outputs/ablation/selector_ablation_decision.json` stores detailed selector decisions for each ablation group.
 - `outputs/ablation/ablation_report.md` is the human-readable ablation report.
+
+Robustness analysis:
+
+- `outputs/robustness/selector_weight_perturbation.csv` reports each rank-weight perturbation scenario and its selected K.
+- `outputs/robustness/selector_weight_perturbation_summary.csv` summarizes the selected-K distribution across perturbations.
+- `outputs/robustness/leave_one_vr_out_summary.csv` reports the selected K and key metrics for each excluded retarding-voltage curve.
+- `outputs/robustness/robustness_summary.json` is the compact paper-facing robustness summary.
 
 For manuscript writing, cite the generated JSON/CSV files rather than intermediate checkpoints. Checkpoints are runtime artifacts and are intentionally ignored by git.
 
@@ -142,6 +163,12 @@ Full main baseline plus ablation:
 python run.py --mode fullscan --ablation
 ```
 
+Full main baseline plus ablation and robustness:
+
+```powershell
+python run.py --mode fullscan --ablation --robustness
+```
+
 ## Outputs
 
 Main baseline evidence:
@@ -158,6 +185,13 @@ Ablation baseline evidence:
 - `outputs/ablation/ablation_summary.csv`
 - `outputs/ablation/ablation_report.md`
 - `outputs/ablation/selector_ablation_decision.json`
+
+Robustness baseline evidence:
+
+- `outputs/robustness/robustness_summary.json`
+- `outputs/robustness/selector_weight_perturbation.csv`
+- `outputs/robustness/selector_weight_perturbation_summary.csv`
+- `outputs/robustness/leave_one_vr_out_summary.csv`
 
 ## Tests
 
