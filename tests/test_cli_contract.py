@@ -36,6 +36,32 @@ def test_fullscan_defaults_enable_hyperparameter_optimization() -> None:
     assert Path(cfg.out_dir) == paths.DEFAULT_OUTPUT / "main" / "fullscan"
 
 
+def test_cli_defaults_to_cpu_and_robustness_off() -> None:
+    args = cli.build_parser().parse_args([])
+    assert args.device == "cpu"
+    assert args.robustness is False
+
+
+def test_cli_does_not_run_robustness_unless_requested(monkeypatch) -> None:
+    calls = {"robustness": 0}
+
+    def fake_main_run(**kwargs):
+        return {"sweep_dir": str(paths.PROJECT_ROOT / "_tmp_contract_output" / "main" / "fullscan")}
+
+    def fake_robustness_run(**kwargs):
+        calls["robustness"] += 1
+        return {}
+
+    monkeypatch.setattr(cli.main_pipeline, "run", fake_main_run)
+    monkeypatch.setattr(cli.robustness_pipeline, "run", fake_robustness_run)
+
+    assert cli.main(["--mode", "smoke"]) == 0
+    assert calls["robustness"] == 0
+
+    assert cli.main(["--mode", "smoke", "--robustness"]) == 0
+    assert calls["robustness"] == 1
+
+
 def test_auto_device_uses_cpu_dispatch_unless_cuda_is_explicit() -> None:
     default_model_cfg = model.Config()
     assert default_model_cfg.device == "cpu"
@@ -51,6 +77,28 @@ def test_auto_device_uses_cpu_dispatch_unless_cuda_is_explicit() -> None:
     assert auto_cfg.selected_device == "cpu"
     assert auto_cfg.dispatch_strategy == "cpu_4"
     assert str(model.resolve_device("auto")) == "cpu"
+
+
+def test_explicit_cuda_is_the_only_cuda_dispatch_path(monkeypatch) -> None:
+    monkeypatch.setattr(main_pipeline.model.torch.cuda, "is_available", lambda: True)
+    cuda_cfg = main_pipeline.build_config(
+        mode="fullscan",
+        input_path=paths.DEFAULT_INPUT,
+        output_root=paths.PROJECT_ROOT / "_tmp_contract_output",
+        device="cuda",
+        exclude=[],
+    )
+    auto_cfg = main_pipeline.build_config(
+        mode="fullscan",
+        input_path=paths.DEFAULT_INPUT,
+        output_root=paths.PROJECT_ROOT / "_tmp_contract_output",
+        device="auto",
+        exclude=[],
+    )
+    assert cuda_cfg.selected_device == "cuda"
+    assert cuda_cfg.dispatch_strategy == "single"
+    assert auto_cfg.selected_device == "cpu"
+    assert auto_cfg.dispatch_strategy == "cpu_4"
 
 
 def test_external_input_and_output_paths_can_be_overridden() -> None:
