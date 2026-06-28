@@ -4,7 +4,7 @@ import argparse
 import json
 from typing import Sequence
 
-from . import ablation_pipeline, main_pipeline, model, paths
+from . import ablation_pipeline, main_pipeline, model, paths, robustness_pipeline
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -20,6 +20,7 @@ def build_parser() -> argparse.ArgumentParser:
         help="Skip an optional stage. Currently supported: hpopt.",
     )
     parser.add_argument("--ablation", action="store_true", help="Run the ablation baseline after the main baseline.")
+    parser.add_argument("--robustness", action="store_true", help="Run selector perturbation and leave-one-Vr-out robustness.")
     parser.add_argument("--input", default=paths.default_input_text(), help="Input data file.")
     parser.add_argument("--output", default=paths.default_output_text(), help="Output root directory.")
     parser.add_argument("--device", choices=["cpu", "cuda", "auto"], default="cpu")
@@ -48,6 +49,14 @@ def main(argv: Sequence[str] | None = None) -> int:
             device=str(args.device),
             main_sweep_dir=main_result["sweep_dir"],
             exclude=args.exclude or [],
+        )
+    if bool(args.robustness):
+        result["robustness"] = robustness_pipeline.run(
+            mode=str(args.mode),
+            input_path=args.input,
+            output_root=args.output,
+            device=str(args.device),
+            main_sweep_dir=main_result["sweep_dir"],
         )
     print(json.dumps(model.json_ready(result), ensure_ascii=False, indent=2))
     return 0

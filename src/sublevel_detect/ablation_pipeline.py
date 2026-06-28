@@ -83,7 +83,7 @@ def run_no_forward_anchor_gap(
         base_payload = {}
     defaults = main_pipeline.profile_defaults(mode)
     cpu_workers = int(defaults.pop("cpu_workers"))
-    selected_device = "cuda" if device == "auto" and model.torch.cuda.is_available() else device
+    selected_device = "cuda" if device == "cuda" and model.torch.cuda.is_available() else "cpu"
     dispatch_strategy = "cpu_4" if selected_device == "cpu" and cpu_workers > 1 else "single"
     base_payload.update(
         {

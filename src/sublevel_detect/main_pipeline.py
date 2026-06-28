@@ -15,8 +15,10 @@ def _json_dump(payload: Dict[str, Any], path: Path) -> None:
 
 def _selected_device(requested: str) -> str:
     requested = requested.lower()
-    if requested == "auto":
+    if requested == "cuda":
         return "cuda" if model.torch.cuda.is_available() else "cpu"
+    if requested == "auto":
+        return "cpu"
     return requested
 
 

@@ -44,6 +44,7 @@ __all__ = [
     "compute_energy_cluster_diagnostics",
     "compute_channel_degeneracy_diagnostics",
     "compute_weight_diagnostics",
+    "DEFAULT_SELECTOR_RANK_WEIGHTS",
     "eval_metrics",
     "load_curves_and_init",
     "model_predict",
@@ -59,7 +60,7 @@ __all__ = [
 class Config:
     data_path: str = DEFAULT_DATA_PATH
     out_dir: str = DEFAULT_OUT_DIR
-    device: str = "auto"
+    device: str = "cpu"
     seed: int = 0
     epochs: int = 3500
     scan_short_epochs: int = 60
@@ -72,6 +73,7 @@ class Config:
     level_scan_max: int = 8
     fixed_levels: int = 0
     scan_seeds: str = "0,1,2"
+    exclude_vr_values: str = ""
     full_train_all_levels: bool = True
     retain_promoted_level_copies: bool = True
     n_max: int = 16
@@ -104,7 +106,7 @@ class Config:
     profile: str = "production"
     cpu_workers: int = 4
     cuda_workers: int = 1
-    selected_device: str = "auto"
+    selected_device: str = "cpu"
     dispatch_strategy: str = "cpu_4"
     resume_mode: str = "auto"
     launch_monitor: bool = True
@@ -239,10 +241,21 @@ def parse_int_list(text: str | Sequence[int]) -> List[int]:
     return values or [0]
 
 
+def parse_float_list(text: str | Sequence[float]) -> List[float]:
+    if isinstance(text, (list, tuple)):
+        return [float(x) for x in text]
+    values: List[float] = []
+    for part in str(text).split(","):
+        part = part.strip()
+        if part:
+            values.append(float(part))
+    return values
+
+
 def resolve_device(name: str) -> torch.device:
     value = str(name).strip().lower()
     if value == "auto":
-        return torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        return torch.device("cpu")
     if value.startswith("cuda") and not torch.cuda.is_available():
         return torch.device("cpu")
     return torch.device(value)
@@ -661,6 +674,15 @@ def load_curves_and_init(cfg: Config) -> Tuple[List[Dict[str, Any]], Dict[str, f
     c_vr = pick_col(frame, ("Vr", "vr", "V_r", "Ur"))
     c_va = pick_col(frame, ("Va", "va", "V_a", "Ua"))
     c_ip = pick_col(frame, ("IuA", "Ip", "ip", "I", "I_meas", "current", "Ip_uA", "I_uA"))
+    excluded_vrs = parse_float_list(getattr(cfg, "exclude_vr_values", ""))
+    if excluded_vrs:
+        vr_numeric = frame[c_vr].astype(float)
+        keep = np.ones(len(frame), dtype=bool)
+        for value in excluded_vrs:
+            keep &= np.abs(vr_numeric.to_numpy(dtype=np.float64) - float(value)) > 1.0e-6
+        frame = frame.loc[keep].copy()
+        if frame.empty:
+            raise ValueError(f"All curves were filtered by exclude_vr_values={excluded_vrs}")
 
     curves: List[Dict[str, Any]] = []
     spacings: List[float] = []
@@ -1992,6 +2014,28 @@ def _best_k(rows: Sequence[Dict[str, Any]], key: str, default: float = float("in
     return int(min(rows, key=lambda row: (safe_float(row.get(key), default), int(row["n_levels"])))["n_levels"])
 
 
+DEFAULT_SELECTOR_RANK_WEIGHTS: Dict[str, float] = {
+    "rmse": 1.0,
+    "summary": 1.0,
+    "d1": 1.0,
+    "d2": 1.0,
+    "structure": 1.25,
+    "physical": 1.0,
+    "bic": 1.0,
+    "aic": 0.5,
+    "degeneracy": 1.0,
+}
+
+
+def _selector_rank_weights(overrides: Optional[Dict[str, float]] = None) -> Dict[str, float]:
+    weights = dict(DEFAULT_SELECTOR_RANK_WEIGHTS)
+    for key, value in dict(overrides or {}).items():
+        normalized = "summary" if str(key) == "cv" else str(key)
+        if normalized in weights:
+            weights[normalized] = float(value)
+    return weights
+
+
 def select_k_neutral_level_decision(
     rows: Sequence[Dict[str, Any]],
     forward_evidence: Optional[Dict[str, Any]] = None,
@@ -1999,6 +2043,7 @@ def select_k_neutral_level_decision(
     use_weight_degeneracy: bool = True,
     use_energy_cluster_degeneracy: bool = True,
     metric_bic_aic_only: bool = False,
+    rank_weights: Optional[Dict[str, float]] = None,
 ) -> Dict[str, Any]:
     if not rows:
         raise ValueError("No rows supplied for level decision")
@@ -2035,6 +2080,7 @@ def select_k_neutral_level_decision(
     rank_physical = _rank_map(clean, "vr_physical_response_score")
     rank_bic = _rank_map(clean, "bic")
     rank_aic = _rank_map(clean, "aic")
+    weights = _selector_rank_weights(rank_weights)
 
     scored: List[Dict[str, Any]] = []
     for row in clean:
@@ -2052,27 +2098,27 @@ def select_k_neutral_level_decision(
             degeneracy_penalty += 0.5
         if metric_bic_aic_only:
             composite = (
-                rank_rmse[k]
-                + rank_cv[k]
-                + 1.25 * rank_structure[k]
-                + rank_physical[k]
-                + rank_bic[k]
-                + 0.5 * rank_aic[k]
+                weights["rmse"] * rank_rmse[k]
+                + weights["summary"] * rank_cv[k]
+                + weights["structure"] * rank_structure[k]
+                + weights["physical"] * rank_physical[k]
+                + weights["bic"] * rank_bic[k]
+                + weights["aic"] * rank_aic[k]
             )
             applied_penalty = 0.0
         else:
             composite = (
-                rank_rmse[k]
-                + rank_cv[k]
-                + rank_d1[k]
-                + rank_d2[k]
-                + 1.25 * rank_structure[k]
-                + rank_physical[k]
-                + rank_bic[k]
-                + 0.5 * rank_aic[k]
-                + degeneracy_penalty
+                weights["rmse"] * rank_rmse[k]
+                + weights["summary"] * rank_cv[k]
+                + weights["d1"] * rank_d1[k]
+                + weights["d2"] * rank_d2[k]
+                + weights["structure"] * rank_structure[k]
+                + weights["physical"] * rank_physical[k]
+                + weights["bic"] * rank_bic[k]
+                + weights["aic"] * rank_aic[k]
+                + weights["degeneracy"] * degeneracy_penalty
             )
-            applied_penalty = degeneracy_penalty
+            applied_penalty = weights["degeneracy"] * degeneracy_penalty
         scored.append(
             {
                 "n_levels": k,
@@ -2117,6 +2163,7 @@ def select_k_neutral_level_decision(
         "best_k_by_aic": _best_k(clean, "aic"),
         "best_k_by_composite_kneutral": selected_k,
         "best_k_by_composite": selected_k,
+        "rank_weights": dict(weights),
         "flatline_guard_pass": bool(all(bool(row.get("flatline_guard_pass", True)) for row in clean)),
         "vr_late_bias_pass": bool(all(bool(row.get("vr_late_bias_pass", True)) for row in clean)),
         "high_vr_valley_depth_pass": bool(all(bool(row.get("high_vr_valley_depth_pass", True)) for row in clean)),
