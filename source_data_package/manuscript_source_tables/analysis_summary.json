@@ -1,0 +1,207 @@
+{
+  "data": {
+    "n_points": 805,
+    "n_curves": 5,
+    "points_per_curve": 161,
+    "va_min": 0.0,
+    "va_max": 80.0,
+    "vr_values": [
+      0.0,
+      4.0,
+      6.0,
+      8.0,
+      10.0
+    ]
+  },
+  "selection": {
+    "selected_k": 4,
+    "best_k_by_fit": 4,
+    "best_k_by_structure": 8,
+    "best_k_by_physical_response": 4,
+    "best_k_by_bic": 4,
+    "best_k_by_aic": 4,
+    "k4_composite_rank_score": 15.0,
+    "k8_composite_rank_score": 21.75,
+    "k4_rmse_mean": 0.077352237701416,
+    "k1_rmse_mean": 0.0802049107849598,
+    "k8_structure_score": 0.0539043696172571,
+    "k4_structure_score": 0.0540880708478892
+  },
+  "k1_k4_metrics": {
+    "k1_rmse_mean": 0.08020490920360082,
+    "k4_rmse_mean": 0.07735223662991682,
+    "k1_mae_mean": 0.06321413326727933,
+    "k4_mae_mean": 0.05793031554897634,
+    "k1_d1_rmse_mean": 0.04526135422370463,
+    "k4_d1_rmse_mean": 0.03988804235737435,
+    "k1_d2_rmse_mean": 0.047302660142115635,
+    "k4_d2_rmse_mean": 0.03656287625608919,
+    "mean_rmse_reduction_pct": 3.88033189828304,
+    "median_rmse_reduction_pct": 3.784239624846381,
+    "mean_mae_reduction_pct": 9.139438084431449,
+    "mean_d1_rmse_reduction_pct": 12.470701889072167,
+    "mean_d2_rmse_reduction_pct": 22.017755882401634,
+    "curves_with_rmse_reduction": 5,
+    "curve_count": 5,
+    "exploratory_paired_rmse_differences": [
+      0.001910738483584834,
+      0.003100883706001173,
+      0.0018207323723004043,
+      0.0030617300889187737,
+      0.004369278217614861
+    ]
+  },
+  "post_eval": {
+    "k1_segment_rmse_mean": 0.06109369973407179,
+    "k4_segment_rmse_mean": 0.049680168843368955,
+    "k1_position_error_abs_mean": 0.9625,
+    "k4_position_error_abs_mean": 0.6375,
+    "k4_flatline_guard_pass": true,
+    "k1_max_abs_late_bias": 0.0388143934854647,
+    "k4_max_abs_late_bias": 0.020315914619259717,
+    "late_bias_threshold": 0.1,
+    "k1_max_high_vr_valley_lift": 0.10998505353927612,
+    "k4_max_high_vr_valley_lift": 0.050161659717559814,
+    "high_vr_valley_lift_threshold": 0.12,
+    "k4_vr_late_bias_pass": true,
+    "k4_high_vr_valley_depth_pass": true
+  },
+  "ablation": {
+    "groups": [
+      {
+        "group": "kneutral_production",
+        "selected_k": 4,
+        "best_k_by_fit": 4,
+        "best_k_by_structure": 8,
+        "best_k_by_physical_response": 4
+      },
+      {
+        "group": "kneutral_no_forward_anchor_gap",
+        "selected_k": 7,
+        "best_k_by_fit": 7,
+        "best_k_by_structure": 7,
+        "best_k_by_physical_response": 7
+      },
+      {
+        "group": "selector_no_weight_degeneracy",
+        "selected_k": 4,
+        "best_k_by_fit": 4,
+        "best_k_by_structure": 8,
+        "best_k_by_physical_response": 4
+      },
+      {
+        "group": "selector_no_energy_cluster",
+        "selected_k": 4,
+        "best_k_by_fit": 4,
+        "best_k_by_structure": 8,
+        "best_k_by_physical_response": 4
+      },
+      {
+        "group": "selector_metric_bic_aic_only",
+        "selected_k": 4,
+        "best_k_by_fit": 4,
+        "best_k_by_structure": 8,
+        "best_k_by_physical_response": 4
+      }
+    ],
+    "selector_only_selected_k_values": [
+      4,
+      4,
+      4
+    ],
+    "no_forward_anchor_gap_selected_k": 7
+  },
+  "channel_parameters": {
+    "selected_k4_channels": [
+      {
+        "channel": 1,
+        "energy_v": 11.500251770019531,
+        "relative_energy_v": 0.0,
+        "weight": 0.3593961000442505,
+        "gap_from_previous_v": ""
+      },
+      {
+        "channel": 2,
+        "energy_v": 11.739255905151367,
+        "relative_energy_v": 0.23900413513183594,
+        "weight": 0.3961048126220703,
+        "gap_from_previous_v": 0.23900461196899414
+      },
+      {
+        "channel": 3,
+        "energy_v": 12.59369945526123,
+        "relative_energy_v": 1.0934476852416992,
+        "weight": 0.08622404932975769,
+        "gap_from_previous_v": 0.854442834854126
+      },
+      {
+        "channel": 4,
+        "energy_v": 13.96471881866455,
+        "relative_energy_v": 2.4644670486450195,
+        "weight": 0.15827499330043793,
+        "gap_from_previous_v": 1.3710198402404785
+      }
+    ],
+    "k4_effective_channel_count_entropy": 3.4476406198246976,
+    "k4_channels_weight_ge_0p10": 3,
+    "k8_effective_channel_count_entropy": 4.747341147591014,
+    "k8_channels_weight_ge_0p10": 1
+  },
+  "robustness": {
+    "selector_scenario_count": 23,
+    "selector_k4_count": 23,
+    "selector_k4_fraction": 1.0,
+    "leave_one_vr_fold_count": 5,
+    "leave_one_vr_k4_count": 3,
+    "leave_one_vr_k4_fraction": 0.6
+  },
+  "figure_count_files": 55,
+  "main_figure_stems": [
+    "fig1_raw_curves",
+    "fig2_channel_parameters",
+    "fig3_k1_fit_grid",
+    "fig4_k4_fit_grid",
+    "fig5_k1_k4_error_reduction_heatmap",
+    "fig6_model_selection_metrics",
+    "fig7_physical_response_audit",
+    "fig8_ablation_selected_k",
+    "fig9_robustness_analysis"
+  ],
+  "supplementary_figure_stems": [
+    "k1_curve_01_fit",
+    "k1_curve_02_fit",
+    "k1_curve_03_fit",
+    "k1_curve_04_fit",
+    "k1_curve_05_fit",
+    "k1_k4_residual_distribution",
+    "k1_training_trace",
+    "k4_curve_01_fit",
+    "k4_curve_02_fit",
+    "k4_curve_03_fit",
+    "k4_curve_04_fit",
+    "k4_curve_05_fit",
+    "k4_training_trace",
+    "peak_valley_segment_diagnostics"
+  ],
+  "source_data_files": [
+    "ablation_summary.csv",
+    "analysis_summary.json",
+    "argon_nist_reference_levels.csv",
+    "channel_parameters.csv",
+    "channel_summary.csv",
+    "figure_manifest.csv",
+    "k1_k4_curve_metric_comparison.csv",
+    "k1_k4_curve_metrics.csv",
+    "k1_k4_residual_points.csv",
+    "leave_one_vr_out_summary.csv",
+    "model_selection_table.csv",
+    "physical_response_k1_k4.csv",
+    "raw_curve_statistics.csv",
+    "robustness_summary.json",
+    "scan_summary.csv",
+    "selector_weight_perturbation.csv",
+    "selector_weight_perturbation_summary.csv",
+    "structure_metrics.csv",
+    "vr_physical_response.csv"
+  ]
+}

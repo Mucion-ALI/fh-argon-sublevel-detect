@@ -1,0 +1,5 @@
+﻿group,configuration,energy_values_eV,energy_min_eV,energy_max_eV,note
+Ar I 4s manifold,3s2 3p5 4s,11.54835442; 11.62359272; 11.72316039; 11.82807116,11.54835442,11.82807116,NIST ASD Ar I levels; near first excited 4s group
+Ar I 4p manifold,3s2 3p5 4p,12.90701530; 13.07571571; 13.09487256; 13.15314387; 13.17177770; 13.27303810; 13.28263902; 13.30222747; 13.32785705; 13.47988682,12.9070153,13.47988682,NIST ASD Ar I levels; higher 4p group above the 4s manifold
+Ar I high excited cluster near 14 eV,3s2 3p5 3d/5s,13.8450385; 13.8636686; 13.9034546; 13.9792373; 14.0127381; 14.0630272; 14.0682977; 14.0899685; 14.0990559; 14.1525151,13.8450385,14.1525151,NIST ASD Ar I levels; dense upper excitation region near the K=4 high-energy channel
+Ar I first ionization limit,[Ne]3s2 3p6,15.7596119,15.7596119,15.7596119,NIST ASD ionization energy; upper boundary for pre-ionization response

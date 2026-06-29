@@ -4,7 +4,7 @@
 
 这是用于论文复现的 Frank-Hertz 氩原子亚能级检测源码项目。
 
-本仓库采用“代码优先”策略：仓库只包含源码、输入数据表、测试与说明文档；训练 checkpoint 和生成的分析产物不提交。运行流程后，主流程、消融流程和稳健性分析的 JSON/CSV 输出会重新生成到 `outputs/`；当前手稿的图级复现由论文 Supplementary Source Data package 支撑。
+本仓库在常规复现层面采用“代码优先”策略：仓库包含源码、输入数据表、测试与说明文档；新的运行输出仍写入 `outputs/`，不作为普通源码变更提交。为便于手稿核验，当前版本单独提交了整理后的 `source_data_package/`，其中包含当前论文草稿使用的图像资产、manuscript-facing CSV/JSON 表、保留的 K=1/K=4 运行记录和校验清单。
 
 ## 项目复现内容
 
@@ -134,7 +134,18 @@ python run.py --mode fullscan --input data/argon/FHdata.xlsx --output outputs --
 - `outputs/robustness/leave_one_vr_out_summary.csv` 报告每个留出阻滞电压曲线对应的 selected K 和关键指标。
 - `outputs/robustness/robustness_summary.json` 是面向论文写作的紧凑稳健性摘要。
 
-论文写作时应引用生成的 JSON/CSV 表，而不是中间 checkpoint。checkpoint 是运行时产物，已通过 `.gitignore` 排除。
+论文写作时应引用生成的 JSON/CSV 表，而不是中间 checkpoint。已提交的 `source_data_package/` 是当前手稿对应的整理归档；该目录之外新生成的 checkpoint 和运行输出仍由 `.gitignore` 排除。
+
+## Source Data Package
+
+`source_data_package/` 目录保存当前手稿的 source-data package：
+
+- `manuscript_source_tables/`：19 个 CSV/JSON 文件，用于支撑手稿图、模型选择表、物理响应审核、消融讨论和稳健性检查。
+- `figures/main/` 与 `figures/supplementary/`：55 个生成图像文件，格式包括 PDF/PNG/SVG 或 PDF/PNG。
+- `run_records/k1_full/` 与 `run_records/k_selected_full/`：14 个 K=1 和 selected K=4 的保留运行记录文件，包括 metrics、parameters、logs、scorecards、status files 和 checkpoints。
+- `FILE_INDEX.csv`、`SHA256SUMS.txt` 与 `validation_report.json`：记录包内路径、原始源路径、文件大小、SHA256 校验值和校验结果。
+
+该数据包由 `ESSAY/ajp_argon_sublevel_manuscript/source_data_package_manifest.md` 生成；88 个 manifest payload 文件的大小和 SHA256 均与清单一致，19 个 manuscript-facing CSV/JSON 表均已通过解析检查。
 
 ## 常用命令
 

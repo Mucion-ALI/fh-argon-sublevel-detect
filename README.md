@@ -4,7 +4,7 @@
 
 Frank-Hertz argon sublevel detection source project for paper reproduction.
 
-This repository is code-first: it contains source code, one input spreadsheet, tests, and documentation. Checkpoints and generated analysis products are not committed. Running the pipeline recreates the main, ablation, and robustness JSON/CSV outputs under `outputs/`; figure-level reproduction for the manuscript is handled through the paper's supplementary Source Data package.
+This repository is code-first for normal reproduction: it contains source code, one input spreadsheet, tests, and documentation, while fresh runtime outputs remain under `outputs/` and are not committed. For manuscript checking, the curated `source_data_package/` directory is committed separately and contains the figure assets, manuscript-facing CSV/JSON tables, retained K=1/K=4 run records, and checksums used by the current paper draft.
 
 ## What This Project Reproduces
 
@@ -134,7 +134,18 @@ Robustness analysis:
 - `outputs/robustness/leave_one_vr_out_summary.csv` reports the selected K and key metrics for each excluded retarding-voltage curve.
 - `outputs/robustness/robustness_summary.json` is the compact paper-facing robustness summary.
 
-For manuscript writing, cite the generated JSON/CSV files rather than intermediate checkpoints. Checkpoints are runtime artifacts and are intentionally ignored by git.
+For manuscript writing, cite the generated JSON/CSV files rather than intermediate checkpoints. The committed `source_data_package/` is a curated manuscript archive; newly generated checkpoints and runtime outputs outside that directory remain ignored by git.
+
+## Source Data Package
+
+The `source_data_package/` directory contains the current manuscript source-data package:
+
+- `manuscript_source_tables/`: 19 CSV/JSON files used by manuscript figures, model-selection tables, physical-response audits, ablation discussion, and robustness checks.
+- `figures/main/` and `figures/supplementary/`: 55 generated figure files in PDF/PNG/SVG or PDF/PNG formats.
+- `run_records/k1_full/` and `run_records/k_selected_full/`: 14 retained run-record files for K=1 and the selected K=4 run, including metrics, parameters, logs, scorecards, status files, and checkpoints.
+- `FILE_INDEX.csv`, `SHA256SUMS.txt`, and `validation_report.json`: package paths, original source paths, sizes, SHA256 checksums, and validation results.
+
+The package was generated from `ESSAY/ajp_argon_sublevel_manuscript/source_data_package_manifest.md`; all 88 manifest payload files matched their recorded sizes and SHA256 checksums, and the 19 manuscript-facing CSV/JSON tables parsed successfully.
 
 ## Commands
 

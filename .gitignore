@@ -10,5 +10,8 @@ __pycache__/
 *.pth
 *.ckpt
 checkpoint_*
+!source_data_package/**/*.pt
+!source_data_package/**/*.pth
+!source_data_package/**/*.ckpt
 _tmp*/
 sublevel_detect_smoke_*/

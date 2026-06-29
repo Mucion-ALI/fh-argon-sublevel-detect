@@ -1,0 +1,6 @@
+group,selected_k,best_k_by_fit,best_k_by_cv,best_k_by_d1_rmse,best_k_by_d2_rmse,best_k_by_structure,best_k_by_physical_response,best_k_by_bic,best_k_by_aic,best_k_by_composite_kneutral,energy_cluster_negative_count,selector_flags
+kneutral_production,4,4,4,8,8,8,4,4,4,4,0,"{""use_weight_degeneracy"": true, ""use_energy_cluster_degeneracy"": true, ""metric_bic_aic_only"": false}"
+kneutral_no_forward_anchor_gap,7,7,7,7,7,7,7,5,7,7,0,"{""use_weight_degeneracy"": true, ""use_energy_cluster_degeneracy"": true, ""metric_bic_aic_only"": false}"
+selector_no_weight_degeneracy,4,4,4,8,8,8,4,4,4,4,0,"{""use_weight_degeneracy"": false, ""use_energy_cluster_degeneracy"": true, ""metric_bic_aic_only"": false}"
+selector_no_energy_cluster,4,4,4,8,8,8,4,4,4,4,0,"{""use_weight_degeneracy"": true, ""use_energy_cluster_degeneracy"": false, ""metric_bic_aic_only"": false}"
+selector_metric_bic_aic_only,4,4,4,8,8,8,4,4,4,4,0,"{""use_weight_degeneracy"": true, ""use_energy_cluster_degeneracy"": true, ""metric_bic_aic_only"": true}"
