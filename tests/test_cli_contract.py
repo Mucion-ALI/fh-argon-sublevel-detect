@@ -4,7 +4,7 @@ from pathlib import Path
 
 import json
 
-from sublevel_detect import ablation_pipeline, cli, main_pipeline, model, paths, robustness_pipeline, self_check
+from sublevel_detect import ablation_pipeline, cli, main_pipeline, model, monitor, paths, robustness_pipeline, self_check
 
 
 def test_excluding_hpopt_disables_hyperparameter_optimization() -> None:
@@ -33,7 +33,8 @@ def test_fullscan_defaults_enable_hyperparameter_optimization() -> None:
     )
     assert cfg.hyperopt_enabled is True
     assert Path(cfg.data_path) == paths.DEFAULT_INPUT
-    assert Path(cfg.out_dir) == paths.DEFAULT_OUTPUT / "main" / "fullscan"
+    assert paths.default_output_text() == "output"
+    assert Path(cfg.out_dir) == paths.PROJECT_ROOT / "output" / "main" / "fullscan"
 
 
 def test_cli_defaults_to_cpu_and_robustness_off() -> None:
@@ -114,6 +115,28 @@ def test_external_input_and_output_paths_can_be_overridden() -> None:
     assert Path(cfg.data_path) == input_path
     assert Path(cfg.out_dir) == output_root / "main" / "fullscan"
     assert cfg.hyperopt_enabled is False
+
+
+def test_explicit_output_path_does_not_target_default_output() -> None:
+    output_root = paths.PROJECT_ROOT / "_tmp_contract_output"
+    args = cli.build_parser().parse_args(["--mode", "fullscan", "--output", str(output_root)])
+    cfg = main_pipeline.build_config(
+        mode=args.mode,
+        input_path=args.input,
+        output_root=args.output,
+        device=args.device,
+        exclude=args.exclude,
+    )
+
+    assert Path(cfg.out_dir) == output_root / "main" / "fullscan"
+    assert Path(cfg.out_dir) != paths.DEFAULT_OUTPUT / "main" / "fullscan"
+
+
+def test_formal_project_uses_single_output_directory_name() -> None:
+    assert paths.DEFAULT_OUTPUT == paths.PROJECT_ROOT / "output"
+    assert "recomputed" not in paths.default_output_text()
+    assert model.Config().out_dir == "output/main/fullscan"
+    assert monitor.build_parser().parse_args([]).root == "output/main/fullscan"
 
 
 def test_cli_accepts_explicit_robustness_flag() -> None:
@@ -201,7 +224,7 @@ def test_leave_one_vr_config_preserves_main_sweep_training_settings(tmp_path: Pa
     cfg = robustness_pipeline._loo_config(
         mode="fullscan",
         input_path=paths.DEFAULT_INPUT,
-        output_root=tmp_path / "outputs",
+        output_root=tmp_path / "output",
         device="cpu",
         main_sweep_dir=sweep_dir,
         excluded_vr=4.0,

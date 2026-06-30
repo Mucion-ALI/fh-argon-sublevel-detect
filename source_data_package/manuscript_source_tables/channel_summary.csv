@@ -1,4 +1,4 @@
-﻿k,n_channels,energy_min_v,energy_max_v,energy_span_v,dominant_channel,dominant_energy_v,dominant_weight,effective_channel_count_entropy,channels_weight_ge_0p10
+k,n_channels,energy_min_v,energy_max_v,energy_span_v,dominant_channel,dominant_energy_v,dominant_weight,effective_channel_count_entropy,channels_weight_ge_0p10
 1,1,11.656540870666504,11.656540870666504,0.0,1,11.656540870666504,1.0,0.9999999999989999,1
 2,2,11.54991340637207,11.812955856323242,0.2630424499511719,1,11.54991340637207,0.5313080549240112,1.9960804735004696,2
 3,3,11.43773078918457,11.913692474365234,0.47596168518066406,2,11.680306434631348,0.4987073540687561,2.828429648929875,3

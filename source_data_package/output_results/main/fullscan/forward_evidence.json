@@ -1,0 +1,196 @@
+{
+  "method": "forward_evidence_soft_prior",
+  "soft_constraint_only": true,
+  "reference_k": 4,
+  "curves": [
+    {
+      "curve_id": 1,
+      "n_peaks": 4,
+      "n_valleys": 3,
+      "peak_positions": [
+        42.5,
+        53.0,
+        64.0,
+        75.5
+      ],
+      "valley_positions": [
+        44.0,
+        55.5,
+        67.0
+      ],
+      "spacing_intervals": [
+        10.5,
+        11.0,
+        11.5,
+        11.5,
+        11.5
+      ],
+      "relative_amplitude": 0.899244499524971,
+      "noise_estimate": 0.014179701174160784
+    },
+    {
+      "curve_id": 2,
+      "n_peaks": 4,
+      "n_valleys": 4,
+      "peak_positions": [
+        42.5,
+        53.5,
+        65.0,
+        77.0
+      ],
+      "valley_positions": [
+        35.5,
+        46.5,
+        58.0,
+        69.5
+      ],
+      "spacing_intervals": [
+        11.0,
+        11.5,
+        12.0,
+        11.0,
+        11.5,
+        11.5
+      ],
+      "relative_amplitude": 1.0382892338648544,
+      "noise_estimate": 0.03376518231083071
+    },
+    {
+      "curve_id": 3,
+      "n_peaks": 5,
+      "n_valleys": 4,
+      "peak_positions": [
+        32.5,
+        43.0,
+        54.0,
+        66.0,
+        77.5
+      ],
+      "valley_positions": [
+        36.5,
+        47.5,
+        59.0,
+        71.0
+      ],
+      "spacing_intervals": [
+        10.5,
+        11.0,
+        12.0,
+        11.5,
+        11.0,
+        11.5,
+        12.0
+      ],
+      "relative_amplitude": 1.2661702050110513,
+      "noise_estimate": 0.04307450975496929
+    },
+    {
+      "curve_id": 4,
+      "n_peaks": 4,
+      "n_valleys": 4,
+      "peak_positions": [
+        33.0,
+        43.5,
+        55.0,
+        66.5
+      ],
+      "valley_positions": [
+        37.0,
+        48.5,
+        60.0,
+        72.0
+      ],
+      "spacing_intervals": [
+        10.5,
+        11.5,
+        11.5,
+        11.5,
+        11.5,
+        12.0
+      ],
+      "relative_amplitude": 1.5416280209594595,
+      "noise_estimate": 0.04655875061440623
+    },
+    {
+      "curve_id": 5,
+      "n_peaks": 4,
+      "n_valleys": 4,
+      "peak_positions": [
+        34.0,
+        44.5,
+        56.0,
+        67.5
+      ],
+      "valley_positions": [
+        38.5,
+        50.0,
+        61.5,
+        73.0
+      ],
+      "spacing_intervals": [
+        10.5,
+        11.5,
+        11.5,
+        11.5,
+        11.5,
+        11.5
+      ],
+      "relative_amplitude": 2.049049884951361,
+      "noise_estimate": 0.04554238639923876
+    }
+  ],
+  "global": {
+    "main_spacing": 11.5,
+    "spacing_std": 0.4310839052125854,
+    "spacing_iqr": 0.5,
+    "n_spacing_intervals": 30,
+    "relative_amplitude_median": 1.2661702050110513,
+    "confidence": 0.9475202202349895,
+    "diagnostic_status": "forward_spacing_supported",
+    "candidate_level_anchors": [
+      11.5,
+      11.75,
+      12.0,
+      12.25,
+      12.5,
+      12.75,
+      13.0,
+      13.25
+    ],
+    "candidate_k_support": [
+      {
+        "k": 1,
+        "support_score": 0.3485732091186899
+      },
+      {
+        "k": 2,
+        "support_score": 0.4864731016981754
+      },
+      {
+        "k": 3,
+        "support_score": 0.6789279052001425
+      },
+      {
+        "k": 4,
+        "support_score": 0.9475202202349895
+      },
+      {
+        "k": 5,
+        "support_score": 0.6789279052001425
+      },
+      {
+        "k": 6,
+        "support_score": 0.4864731016981754
+      },
+      {
+        "k": 7,
+        "support_score": 0.3485732091186899
+      },
+      {
+        "k": 8,
+        "support_score": 0.24976361836072639
+      }
+    ],
+    "envelope_slope": 0.03523839709157345
+  }
+}

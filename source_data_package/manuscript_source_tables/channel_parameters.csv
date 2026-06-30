@@ -1,4 +1,4 @@
-﻿k,channel,energy_v,relative_energy_v,weight,gap_from_previous_v,is_selected_k
+k,channel,energy_v,relative_energy_v,weight,gap_from_previous_v,is_selected_k
 1,1,11.656540870666504,0.0,1.0,,False
 2,1,11.54991340637207,0.0,0.5313080549240112,,False
 2,2,11.812955856323242,0.2630424499511719,0.46869200468063354,0.2630424201488495,False

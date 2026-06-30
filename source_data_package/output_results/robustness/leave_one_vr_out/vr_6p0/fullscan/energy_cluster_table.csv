@@ -1,0 +1,9 @@
+n_levels,energy_cluster_status,cluster_count,clustered_level_indices,cluster_centers_eV,cluster_spans_eV,cluster_weight_mass,clustered_level_count,effective_distinct_level_count,cluster_tolerance_eV
+1,separated,0,[],[],[],[],0,1,0.02
+2,separated,0,[],[],[],[],0,2,0.02
+3,separated,0,[],[],[],[],0,3,0.02
+4,separated,0,[],[],[],[],0,4,0.02
+5,separated,0,[],[],[],[],0,5,0.02
+6,separated,0,[],[],[],[],0,6,0.02
+7,separated,0,[],[],[],[],0,7,0.02
+8,separated,0,[],[],[],[],0,8,0.02

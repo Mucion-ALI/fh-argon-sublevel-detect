@@ -1,0 +1,100 @@
+{
+  "energy_cluster_metric_summary": [
+    {
+      "n_levels": 1,
+      "energy_cluster_status": "separated",
+      "cluster_count": 0,
+      "clustered_level_indices": [],
+      "cluster_centers_eV": [],
+      "cluster_spans_eV": [],
+      "cluster_weight_mass": [],
+      "clustered_level_count": 0,
+      "effective_distinct_level_count": 1,
+      "cluster_tolerance_eV": 0.02
+    },
+    {
+      "n_levels": 2,
+      "energy_cluster_status": "separated",
+      "cluster_count": 0,
+      "clustered_level_indices": [],
+      "cluster_centers_eV": [],
+      "cluster_spans_eV": [],
+      "cluster_weight_mass": [],
+      "clustered_level_count": 0,
+      "effective_distinct_level_count": 2,
+      "cluster_tolerance_eV": 0.02
+    },
+    {
+      "n_levels": 3,
+      "energy_cluster_status": "separated",
+      "cluster_count": 0,
+      "clustered_level_indices": [],
+      "cluster_centers_eV": [],
+      "cluster_spans_eV": [],
+      "cluster_weight_mass": [],
+      "clustered_level_count": 0,
+      "effective_distinct_level_count": 3,
+      "cluster_tolerance_eV": 0.02
+    },
+    {
+      "n_levels": 4,
+      "energy_cluster_status": "separated",
+      "cluster_count": 0,
+      "clustered_level_indices": [],
+      "cluster_centers_eV": [],
+      "cluster_spans_eV": [],
+      "cluster_weight_mass": [],
+      "clustered_level_count": 0,
+      "effective_distinct_level_count": 4,
+      "cluster_tolerance_eV": 0.02
+    },
+    {
+      "n_levels": 5,
+      "energy_cluster_status": "separated",
+      "cluster_count": 0,
+      "clustered_level_indices": [],
+      "cluster_centers_eV": [],
+      "cluster_spans_eV": [],
+      "cluster_weight_mass": [],
+      "clustered_level_count": 0,
+      "effective_distinct_level_count": 5,
+      "cluster_tolerance_eV": 0.02
+    },
+    {
+      "n_levels": 6,
+      "energy_cluster_status": "separated",
+      "cluster_count": 0,
+      "clustered_level_indices": [],
+      "cluster_centers_eV": [],
+      "cluster_spans_eV": [],
+      "cluster_weight_mass": [],
+      "clustered_level_count": 0,
+      "effective_distinct_level_count": 6,
+      "cluster_tolerance_eV": 0.02
+    },
+    {
+      "n_levels": 7,
+      "energy_cluster_status": "separated",
+      "cluster_count": 0,
+      "clustered_level_indices": [],
+      "cluster_centers_eV": [],
+      "cluster_spans_eV": [],
+      "cluster_weight_mass": [],
+      "clustered_level_count": 0,
+      "effective_distinct_level_count": 7,
+      "cluster_tolerance_eV": 0.02
+    },
+    {
+      "n_levels": 8,
+      "energy_cluster_status": "separated",
+      "cluster_count": 0,
+      "clustered_level_indices": [],
+      "cluster_centers_eV": [],
+      "cluster_spans_eV": [],
+      "cluster_weight_mass": [],
+      "clustered_level_count": 0,
+      "effective_distinct_level_count": 8,
+      "cluster_tolerance_eV": 0.02
+    }
+  ]
+}

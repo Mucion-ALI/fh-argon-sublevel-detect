@@ -1,13 +1,13 @@
 {
   "n_levels": 4,
-  "feature_version": "structure_v4_kneutral",
-  "config_hash": "0abe6be86ad8e94a",
+  "model_schema": "sublevel_detect_formal",
+  "config_hash": "d03ff2c45f1cef00",
   "seed": 0,
   "epochs_requested": 3500,
   "epochs_completed": 3500,
   "best_epoch": 3500,
   "best_loss": 0.017887916415929794,
-  "elapsed_seconds": 41.899342899996554,
+  "elapsed_seconds": 41.24436370001058,
   "device": "cpu",
   "optimizer_summary": {
     "optimizer_name": "muon_hybrid",
@@ -855,10 +855,10 @@
         "high_vr_valley_lift_threshold": 0.12,
         "max_abs_late_bias": 0.020315914619259717,
         "max_high_vr_valley_lift": 0.050161659717559814,
-        "vr_physical_response_score": 1.1627767745811732
+        "vr_physical_response_score": 0.31058648858613114
       }
     },
-    "vr_physical_response_score": 1.1627767745811732,
+    "vr_physical_response_score": 0.31058648858613114,
     "vr_late_bias_pass": true,
     "high_vr_valley_depth_pass": true,
     "per_curve": [

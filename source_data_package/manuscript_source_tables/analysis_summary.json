@@ -69,14 +69,14 @@
   "ablation": {
     "groups": [
       {
-        "group": "kneutral_production",
+        "group": "main_baseline",
         "selected_k": 4,
         "best_k_by_fit": 4,
         "best_k_by_structure": 8,
         "best_k_by_physical_response": 4
       },
       {
-        "group": "kneutral_no_forward_anchor_gap",
+        "group": "no_forward_anchor_gap",
         "selected_k": 7,
         "best_k_by_fit": 7,
         "best_k_by_structure": 7,
@@ -155,8 +155,10 @@
     "leave_one_vr_k4_count": 3,
     "leave_one_vr_k4_fraction": 0.6
   },
-  "figure_count_files": 55,
+  "figure_count_files": 61,
   "main_figure_stems": [
+    "fig10_prior_strength_sensitivity",
+    "fig11_channel_uncertainty",
     "fig1_raw_curves",
     "fig2_channel_parameters",
     "fig3_k1_fit_grid",
@@ -189,6 +191,11 @@
     "argon_nist_reference_levels.csv",
     "channel_parameters.csv",
     "channel_summary.csv",
+    "channel_uncertainty_anchor_matched.csv",
+    "channel_uncertainty_anchor_matched_samples.csv",
+    "channel_uncertainty_conditional_k4.csv",
+    "channel_uncertainty_samples.csv",
+    "channel_uncertainty_summary.csv",
     "figure_manifest.csv",
     "k1_k4_curve_metric_comparison.csv",
     "k1_k4_curve_metrics.csv",
@@ -196,12 +203,17 @@
     "leave_one_vr_out_summary.csv",
     "model_selection_table.csv",
     "physical_response_k1_k4.csv",
+    "prior_strength_channel_drift.csv",
+    "prior_strength_selection.csv",
     "raw_curve_statistics.csv",
+    "residual_bootstrap_scale_check.csv",
     "robustness_summary.json",
     "scan_summary.csv",
     "selector_weight_perturbation.csv",
     "selector_weight_perturbation_summary.csv",
+    "sensitivity_summary.json",
     "structure_metrics.csv",
+    "uncertainty_selection_summary.csv",
     "vr_physical_response.csv"
   ]
 }

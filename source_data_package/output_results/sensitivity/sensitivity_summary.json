@@ -1,0 +1,11 @@
+{
+  "ok": true,
+  "mode": "fullscan",
+  "prior_strength_rows": 6,
+  "uncertainty_sample_rows": 7740,
+  "prior_strength_selection": "./output/sensitivity/prior_strength/prior_strength_selection.csv",
+  "channel_uncertainty_conditional_k4": "./output/sensitivity/uncertainty/channel_uncertainty_conditional_k4.csv",
+  "channel_uncertainty_anchor_matched": "./output/sensitivity/uncertainty/channel_uncertainty_anchor_matched.csv",
+  "channel_uncertainty_summary": "./output/sensitivity/uncertainty/channel_uncertainty_summary.csv",
+  "uncertainty_selection_summary": "./output/sensitivity/uncertainty/uncertainty_selection_summary.csv"
+}

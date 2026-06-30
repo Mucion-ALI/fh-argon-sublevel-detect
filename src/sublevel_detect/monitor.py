@@ -64,11 +64,15 @@ def format_status_snapshot(rows: Sequence[Dict[str, Any]], now: float | None = N
     return "\n".join(lines)
 
 
-def main(argv: Sequence[str] | None = None) -> int:
+def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Monitor sublevel detection training status files")
-    parser.add_argument("--root", default="outputs/main/fullscan")
+    parser.add_argument("--root", default="output/main/fullscan")
     parser.add_argument("--interval", type=int, default=15)
-    args = parser.parse_args(argv)
+    return parser
+
+
+def main(argv: Sequence[str] | None = None) -> int:
+    args = build_parser().parse_args(argv)
     root = Path(args.root)
     interval = max(1, int(args.interval))
     while True:

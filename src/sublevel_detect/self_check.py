@@ -24,7 +24,14 @@ def _blocked_terms() -> list[str]:
 
 
 def _iter_text_files(root: Path) -> Iterable[Path]:
-    ignored = {"data", "outputs", "__pycache__", ".pytest_cache", ".git"}
+    ignored = {
+        "data",
+        "output",
+        "source_data_package",
+        "__pycache__",
+        ".pytest_cache",
+        ".git",
+    }
     for path in root.rglob("*"):
         if not path.is_file():
             continue

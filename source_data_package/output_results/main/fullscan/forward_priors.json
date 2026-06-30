@@ -1,0 +1,32 @@
+{
+  "method": "forward_prior_compiler",
+  "soft_constraint_only": true,
+  "candidate_k": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "hard_gates": [],
+  "config_updates": {
+    "forward_prior_mode": "auto",
+    "forward_main_spacing": 11.5,
+    "forward_spacing_std": 0.4310839052125854,
+    "forward_confidence": 0.9475202202349895,
+    "forward_anchor_step": 0.25,
+    "w_prior_anchor": 0.0005790080880939959,
+    "w_prior_gap": 0.0003895040440469979,
+    "early_stop_min_delta_rel": 0.0002
+  },
+  "basis": {
+    "main_spacing": 11.5,
+    "spacing_std": 0.4310839052125854,
+    "confidence": 0.9475202202349895,
+    "diagnostic_status": "forward_spacing_supported"
+  },
+  "strength_factor": 1.0
+}

@@ -23,7 +23,7 @@ import torch.nn.functional as F
 
 
 DEFAULT_DATA_PATH = "data/argon/FHdata.xlsx"
-DEFAULT_OUT_DIR = "outputs/main/fullscan"
+DEFAULT_OUT_DIR = "output/main/fullscan"
 MODEL_SCHEMA = "sublevel_detect_formal"
 SUPPORTED_SPACING_STATUSES = {
     "stable_main_period_supported",
@@ -48,11 +48,13 @@ __all__ = [
     "eval_metrics",
     "load_curves_and_init",
     "model_predict",
+    "prediction_point_rows",
     "run_level_fit",
     "run_level_scan",
     "select_adaptive_level_decision",
     "select_k_neutral_level_decision",
     "train_multilevel",
+    "write_prediction_points_for_artifact",
 ]
 
 
@@ -142,6 +144,7 @@ class Config:
     forward_spacing_std: float = 0.0
     forward_confidence: float = 0.0
     forward_anchor_step: float = 0.25
+    init_jitter_scale: float = 0.0
 
 
 @dataclass
@@ -739,6 +742,8 @@ class PoissonRateFHCoreMultiLevel(nn.Module):
         min_level_gap: float = 0.04,
         device: Optional[torch.device] = None,
         V_exc_init: float = 11.5,
+        init_jitter_scale: float = 0.0,
+        init_seed: int = 0,
     ) -> None:
         super().__init__()
         self.n_curves = int(n_curves)
@@ -746,24 +751,34 @@ class PoissonRateFHCoreMultiLevel(nn.Module):
         self.n_levels = int(max(1, min(8, n_levels)))
         self.min_level_gap = float(min_level_gap)
         self.device_hint = str(device or "cpu")
+        jitter = max(0.0, float(init_jitter_scale))
+        generator = torch.Generator(device="cpu")
+        generator.manual_seed(int(init_seed))
+
+        def jitter_like(tensor: torch.Tensor, scale: float = 1.0) -> torch.Tensor:
+            if jitter <= 0.0 or tensor.numel() == 0:
+                return torch.zeros_like(tensor)
+            return torch.randn(tensor.shape, generator=generator, dtype=tensor.dtype) * float(jitter * scale)
 
         self.raw_E1 = nn.Parameter(torch.tensor(inv_bounded(float(V_exc_init), 9.0, 14.5), dtype=torch.float32))
         if self.n_levels > 1:
             init_gaps = torch.full((self.n_levels - 1,), -2.5, dtype=torch.float32)
+            init_gaps = init_gaps + jitter_like(init_gaps)
             self.raw_dE = nn.Parameter(init_gaps)
         else:
             self.raw_dE = nn.Parameter(torch.empty(0, dtype=torch.float32))
         init_logits = torch.zeros(self.n_levels, dtype=torch.float32)
+        init_logits = init_logits + jitter_like(init_logits)
         self.raw_level_logits = nn.Parameter(init_logits)
 
         self.raw_amp = nn.Parameter(torch.tensor(inv_bounded(1.2, 0.05, 5.0), dtype=torch.float32))
         self.raw_offset = nn.Parameter(torch.tensor(inv_bounded(0.02, -0.5, 0.8), dtype=torch.float32))
         self.raw_v_emit = nn.Parameter(torch.tensor(inv_bounded(4.0, 0.0, 18.0), dtype=torch.float32))
         self.raw_power = nn.Parameter(torch.tensor(inv_bounded(1.25, 0.7, 2.4), dtype=torch.float32))
-        self.raw_osc_amp = nn.Parameter(torch.tensor(inv_bounded(0.28, 0.0, 0.90), dtype=torch.float32))
+        self.raw_osc_amp = nn.Parameter(torch.tensor(inv_bounded(0.28, 0.0, 0.90), dtype=torch.float32) + jitter_like(torch.zeros((), dtype=torch.float32), 0.5))
         self.raw_width = nn.Parameter(torch.tensor(inv_bounded(1.25, 0.25, 5.0), dtype=torch.float32))
         self.raw_damping = nn.Parameter(torch.tensor(inv_bounded(0.010, 0.0, 0.060), dtype=torch.float32))
-        self.raw_phase = nn.Parameter(torch.tensor(inv_bounded(0.0, -6.0, 6.0), dtype=torch.float32))
+        self.raw_phase = nn.Parameter(torch.tensor(inv_bounded(0.0, -6.0, 6.0), dtype=torch.float32) + jitter_like(torch.zeros((), dtype=torch.float32), 0.5))
         self.raw_vr_scale = nn.Parameter(torch.tensor(inv_bounded(1.0, 0.80, 1.20), dtype=torch.float32))
         self.raw_slope = nn.Parameter(torch.tensor(inv_bounded(0.0, -0.02, 0.04), dtype=torch.float32))
         self.raw_collector_threshold = nn.Parameter(torch.tensor(inv_bounded(2.5, -4.0, 10.0), dtype=torch.float32))
@@ -972,7 +987,7 @@ def model_predict(
     return model(Va, Vr, curve_idx=curve_idx, nuisance_mode=nuisance_mode)
 
 
-def curve_to_tensors(curve: Dict[str, Any], device: torch.device) -> Dict[str, torch.Tensor]:
+def curve_to_tensors(curve: Dict[str, Any], device: torch.device, peak_window_radius: float = 1.5) -> Dict[str, torch.Tensor]:
     va_np = np.asarray(curve["Va"], dtype=np.float32)
     ip_np = np.asarray(curve["Ip"], dtype=np.float32)
     if bool(curve["Vr_is_vector"]):
@@ -983,8 +998,8 @@ def curve_to_tensors(curve: Dict[str, Any], device: torch.device) -> Dict[str, t
     ip_t = torch.tensor(ip_np, device=device)
     d1_t = finite_diff(ip_t, va_t)
     d2_t = finite_diff(d1_t, va_t)
-    weight_np = structure_window_weights_np(va_np, ip_np)
-    valley_weight_np = valley_window_weights_np(va_np, ip_np)
+    weight_np = structure_window_weights_np(va_np, ip_np, radius=float(peak_window_radius))
+    valley_weight_np = valley_window_weights_np(va_np, ip_np, radius=float(peak_window_radius))
     return {
         "curve_idx": torch.tensor(int(curve["curve_idx"]), device=device, dtype=torch.long),
         "Va": va_t,
@@ -1518,6 +1533,83 @@ def eval_metrics(
     }
 
 
+@torch.no_grad()
+def prediction_point_rows(
+    trained_model: PoissonRateFHCoreMultiLevel,
+    curves: Sequence[Dict[str, Any]],
+    device: torch.device,
+    nuisance_mode: str = "curve",
+) -> List[Dict[str, Any]]:
+    trained_model.eval()
+    rows: List[Dict[str, Any]] = []
+    for curve in curves:
+        tensors = curve_to_tensors(curve, device)
+        pred = model_predict(
+            trained_model,
+            tensors["Va"],
+            tensors["Vr"],
+            tensors["curve_idx"],
+            nuisance_mode=nuisance_mode,
+        )
+        pred_np = pred.detach().cpu().numpy().astype(np.float64)
+        va = np.asarray(curve["Va"], dtype=np.float64)
+        observed = np.asarray(curve["Ip"], dtype=np.float64)
+        if bool(curve["Vr_is_vector"]):
+            vr = np.asarray(curve["Vr"], dtype=np.float64)
+        else:
+            vr = np.full_like(va, float(curve["Vr"]), dtype=np.float64)
+        for idx in range(int(len(va))):
+            rows.append(
+                {
+                    "curve_id": int(curve["curve_id"]),
+                    "Vr": float(vr[idx]),
+                    "Va": float(va[idx]),
+                    "observed": float(observed[idx]),
+                    "predicted": float(pred_np[idx]),
+                    "residual": float(observed[idx] - pred_np[idx]),
+                }
+            )
+    return rows
+
+
+def write_prediction_points_for_artifact(cfg: Config, artifact_dir: str | Path) -> Path:
+    target = Path(artifact_dir)
+    scorecard_path = target / "scorecard.json"
+    checkpoint_path = target / "checkpoint_best.pt"
+    if not scorecard_path.exists():
+        raise FileNotFoundError(f"Missing scorecard for prediction export: {scorecard_path}")
+    if not checkpoint_path.exists():
+        raise FileNotFoundError(f"Missing checkpoint for prediction export: {checkpoint_path}")
+    scorecard = json.loads(scorecard_path.read_text(encoding="utf-8-sig"))
+    n_levels = int(scorecard.get("n_levels", 0))
+    seed = int(scorecard.get("seed", 0))
+    if n_levels <= 0:
+        raise ValueError(f"Invalid n_levels in scorecard: {scorecard_path}")
+    local_cfg = Config(**asdict(cfg))
+    local_cfg.seed = seed
+    curves, init = load_curves_and_init(local_cfg)
+    device = resolve_device(local_cfg.selected_device if local_cfg.selected_device != "auto" else local_cfg.device)
+    trained = PoissonRateFHCoreMultiLevel(
+        n_curves=len(curves),
+        n_max=int(local_cfg.n_max),
+        n_levels=n_levels,
+        min_level_gap=float(local_cfg.min_level_gap),
+        device=device,
+        V_exc_init=float(init["V_exc_init"]),
+        init_jitter_scale=float(local_cfg.init_jitter_scale),
+        init_seed=seed,
+    ).to(device)
+    loaded = torch.load(checkpoint_path, map_location=device, weights_only=False)
+    if isinstance(loaded, dict) and "model_state" in loaded:
+        trained.load_state_dict(loaded["model_state"], strict=True)
+    else:
+        trained.load_state_dict(loaded, strict=True)
+    rows = prediction_point_rows(trained, curves, device, nuisance_mode="curve")
+    out_path = target / "prediction_points.csv"
+    pd.DataFrame(rows, columns=["curve_id", "Vr", "Va", "observed", "predicted", "residual"]).to_csv(out_path, index=False)
+    return out_path
+
+
 def extract_params(model: PoissonRateFHCoreMultiLevel) -> Dict[str, Any]:
     with torch.no_grad():
         phys = model.phys_params()
@@ -1541,7 +1633,10 @@ def extract_params(model: PoissonRateFHCoreMultiLevel) -> Dict[str, Any]:
 
 
 def config_hash(cfg: Config) -> str:
-    payload = json.dumps(json_ready(asdict(cfg)), ensure_ascii=False, sort_keys=True)
+    values = asdict(cfg)
+    if safe_float(values.get("init_jitter_scale"), 0.0) == 0.0:
+        values.pop("init_jitter_scale", None)
+    payload = json.dumps(json_ready(values), ensure_ascii=False, sort_keys=True)
     return hashlib.sha256(payload.encode("utf-8")).hexdigest()[:16]
 
 
@@ -1642,7 +1737,7 @@ def train_multilevel(
             model.load_state_dict(loaded["model_state"], strict=False)
         else:
             model.load_state_dict(loaded, strict=False)
-    tensor_curves = [curve_to_tensors(curve, device) for curve in curves]
+    tensor_curves = [curve_to_tensors(curve, device, peak_window_radius=float(cfg.peak_window_radius)) for curve in curves]
     optimizer = build_optimizer(model.named_parameters(), cfg.optimizer, cfg.lr, cfg.weight_decay)
     stopper = EarlyStopper(
         warmup_epochs=int(cfg.early_stop_warmup),
@@ -1774,6 +1869,8 @@ def run_level_fit(
         min_level_gap=float(local_cfg.min_level_gap),
         device=torch_device,
         V_exc_init=float(init["V_exc_init"]),
+        init_jitter_scale=float(local_cfg.init_jitter_scale),
+        init_seed=seed,
     ).to(torch_device)
     target_dir = Path(out_dir if out_dir is not None else local_cfg.out_dir)
     scorecard = train_multilevel(
@@ -2898,6 +2995,16 @@ def checkpoint_matches_config(path: Path, cfg: Config) -> bool:
     return str(payload.get("config_hash", "")) == config_hash(cfg)
 
 
+def runtime_cpu_workers(cfg: Config) -> int:
+    override = os.environ.get("SUBLEVEL_CPU_WORKERS", "").strip()
+    if override:
+        try:
+            return max(1, int(override))
+        except ValueError:
+            return max(1, int(cfg.cpu_workers))
+    return max(1, int(cfg.cpu_workers))
+
+
 def _run_level_fit_worker(payload: Dict[str, Any]) -> Dict[str, Any]:
     os.environ["OMP_NUM_THREADS"] = "1"
     os.environ["MKL_NUM_THREADS"] = "1"
@@ -2965,10 +3072,10 @@ def run_level_scan(cfg: Config) -> Dict[str, Any]:
         str(cfg.dispatch_strategy) == "cpu_4"
         and str(device) == "cpu"
         and len(jobs) > 1
-        and int(cfg.cpu_workers) > 1
+        and runtime_cpu_workers(cfg) > 1
     )
     if use_parallel:
-        with concurrent.futures.ProcessPoolExecutor(max_workers=max(1, int(cfg.cpu_workers))) as pool:
+        with concurrent.futures.ProcessPoolExecutor(max_workers=runtime_cpu_workers(cfg)) as pool:
             for _ in pool.map(_run_level_fit_worker, jobs):
                 pass
     else:
@@ -2988,8 +3095,14 @@ def run_level_scan(cfg: Config) -> Dict[str, Any]:
     write_scan_tables(out_dir, summaries, decision)
     is_retained_sweep = out_dir.name == "fullscan" and out_dir.parent.name == "main"
     if bool(cfg.retain_promoted_level_copies) and is_retained_sweep:
-        copy_best_level_artifact(out_dir, 1, out_dir.parent / "k1_full")
-        copy_best_level_artifact(out_dir, int(decision.get("selected_k", 1)), out_dir.parent / "k_selected_full")
+        k1_dir = out_dir.parent / "k1_full"
+        selected_dir = out_dir.parent / "k_selected_full"
+        copy_best_level_artifact(out_dir, 1, k1_dir)
+        if k1_dir.exists():
+            write_prediction_points_for_artifact(cfg, k1_dir)
+        copy_best_level_artifact(out_dir, int(decision.get("selected_k", 1)), selected_dir)
+        if selected_dir.exists():
+            write_prediction_points_for_artifact(cfg, selected_dir)
     runtime = {
         "decision": decision.get("decision"),
         "evaluated_levels": decision.get("evaluated_levels"),
@@ -3015,7 +3128,7 @@ def run_level_scan(cfg: Config) -> Dict[str, Any]:
         "early_stop_min_epochs": int(cfg.early_stop_min_epochs),
         "model_selected": bool(decision.get("decision") == "select"),
         "evidence_confirmed": bool(decision.get("selected_k") == decision.get("best_k_by_composite_kneutral")),
-        "source_sweep": "outputs/main/fullscan/decision.json",
+        "source_sweep": "output/main/fullscan/decision.json",
     }
     confirm_dir = out_dir.parent / "confirm_round"
     confirm_dir.mkdir(parents=True, exist_ok=True)

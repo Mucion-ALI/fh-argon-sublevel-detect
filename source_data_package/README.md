@@ -1,19 +1,28 @@
 # Source Data Package
 
-This directory contains the manuscript source-data package for the Frank-Hertz argon sublevel-detection study. It is a curated archive of the files listed in `source_data_package_manifest.md` and is intended to support figure-level checking and manuscript-table reproduction without expanding Appendix C into a full file inventory.
+This package is the manuscript-facing, curated source-data bundle for the argon
+Franck-Hertz sublevel-detection analysis. It is rebuilt from
+`SubLevel_Detect/output/` and the manuscript visualization workspace.
 
 ## Contents
 
-- `manuscript_source_tables/`: CSV/JSON tables used directly by manuscript figures, model-selection tables, physical-response audits, ablation discussion, and robustness checks.
-- `figures/main/`: main-text figure assets in PDF/PNG/SVG formats.
-- `figures/supplementary/`: supplementary figure assets in PDF/PNG formats.
-- `run_records/k1_full/` and `run_records/k_selected_full/`: retained K=1 and selected-K run records, including metrics, parameters, scorecards, logs, status files, and checkpoints used to document the retained runs.
-- `FILE_INDEX.csv`: package path, original local source path, file size, and SHA256 for every payload file.
-- `SHA256SUMS.txt`: checksum list for payload files and package metadata.
-- `validation_report.json`: machine-readable validation summary generated from the manifest.
+- `manuscript_source_tables/`: 29 CSV/JSON source tables used by the manuscript.
+- `figures/main/`: 35 main-text figure assets.
+- `figures/supplementary/`: 36 supplementary figure assets.
+- `run_records/`: minimal `K=1` and production `K=4` run records.
+- `output_results/`: selected `output/` decisions, summaries, prediction points,
+  robustness summaries, and sensitivity summaries.
+- `FILE_INDEX.csv`: package index with SHA256 hashes.
+- `SHA256SUMS.txt`: checksum list for every packaged file.
+- `validation_report.json`: machine-readable consistency checks.
 
-## Validation
+The package intentionally excludes full perturbation training trees, full
+seed-level checkpoint forests, and large intermediate outputs. These are
+regenerated from `data/argon/FHdata.xlsx` with:
 
-The package was generated from `ESSAY/ajp_argon_sublevel_manuscript/source_data_package_manifest.md`. The generation check verified 88 manifest payload files: 19 manuscript source tables, 55 generated figure files, and 14 retained K=1/K=4 run-record files. File sizes and SHA256 hashes matched the manifest, and the 19 manuscript-facing CSV/JSON source tables were parsed successfully.
+```powershell
+python run.py --mode fullscan --ablation --robustness
+python run.py --mode fullscan --exclude hpopt --sensitivity --device cpu
+```
 
-The package is separate from normal runtime outputs. New smoke-test or rerun outputs should not be mixed into this directory unless the manifest and checksum files are regenerated.
+Validation status: `pass`.

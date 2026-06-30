@@ -1,27 +1,35 @@
 {
-  "generated_utc": "2026-06-29T05:59:08+00:00",
-  "source_manifest": "ESSAY/ajp_argon_sublevel_manuscript/source_data_package_manifest.md",
-  "source_manifest_sha256": "C4C96C2FB4EEBC077E1270D45B802EF0F22CC119EB613F1F60EADE4695C9C93D",
-  "package_root": "SubLevel_Detect/source_data_package",
-  "total_manifest_payload_files": 88,
-  "section_counts": {
-    "Manuscript Source Tables": 19,
-    "Generated Figures": 55,
-    "Retained K=1 And K=4 Run Records": 14
+  "status": "pass",
+  "checks": {
+    "manuscript_source_table_count_is_29": true,
+    "figure_asset_count_is_71": true,
+    "prior_1x_selected_k_is_4": true,
+    "anchor_energies_match_expected": true,
+    "residual_bootstrap_std_close_to_prediction_residual_std_lt_0p01_uA": true,
+    "hashes_present_for_all_files": true
   },
-  "payload_validation": "passed",
-  "csv_json_parse_validation": {
-    "manuscript_source_tables_csv": 17,
-    "manuscript_source_tables_json": 2,
-    "status": "passed"
+  "counts": {
+    "package_files": 309,
+    "manuscript_source_tables": 29,
+    "figure_assets": 71,
+    "run_record_files": 16,
+    "output_result_files": 193
   },
-  "package_checksums": "SHA256SUMS.txt",
-  "file_index": "FILE_INDEX.csv",
-  "errors": [],
-  "metadata_files": {
-    "README.md": "64ACB92C4A1B10C8A3C67347944FD01F415F662967CC7D01064B2835783BFADB",
-    "FILE_INDEX.csv": "78B35EE78E1F5A6C5F1DE249004459C2122D47BC9D7D9C787974EFBE23AFC886",
-    "source_data_package_manifest.md": "C4C96C2FB4EEBC077E1270D45B802EF0F22CC119EB613F1F60EADE4695C9C93D"
+  "prior_1x": {
+    "selected_k": 4,
+    "w_prior_anchor": 0.0005790080880939959,
+    "w_prior_gap": 0.0003895040440469979
   },
-  "validation_report_sha256_note": "See SHA256SUMS.txt; this file is not self-hashed inside its own JSON body."
+  "anchor_energies_v": [
+    11.500251770019531,
+    11.739255905151367,
+    12.59369945526123,
+    13.96471881866455
+  ],
+  "residual_bootstrap": {
+    "bootstrap_noise_std": 0.07944132053812393,
+    "prediction_residual_std": 0.08032634434767792,
+    "std_abs_delta_uA": 0.000885023809553992
+  },
+  "hash_failures": []
 }

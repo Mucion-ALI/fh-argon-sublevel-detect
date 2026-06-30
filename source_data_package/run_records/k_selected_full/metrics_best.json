@@ -807,10 +807,10 @@
       "high_vr_valley_lift_threshold": 0.12,
       "max_abs_late_bias": 0.020315914619259717,
       "max_high_vr_valley_lift": 0.050161659717559814,
-      "vr_physical_response_score": 1.1627767745811732
+      "vr_physical_response_score": 0.31058648858613114
     }
   },
-  "vr_physical_response_score": 1.1627767745811732,
+  "vr_physical_response_score": 0.31058648858613114,
   "vr_late_bias_pass": true,
   "high_vr_valley_depth_pass": true,
   "per_curve": [

@@ -1,6 +1,6 @@
-# Output Structure
+﻿# Output Structure
 
-`outputs/main/fullscan/` contains the main K scan:
+`output/main/fullscan/` contains the main K scan:
 
 - `decision.json`: selected K and selector diagnostics.
 - `model_selection_table.csv`: one row per scored K.
@@ -9,12 +9,16 @@
 - `structure_metrics.csv`: peak-valley and shape-preservation summary.
 - `production_run_summary.json`: command-level run metadata.
 
-`outputs/main/` contains paper-facing summaries:
+`output/main/` contains paper-facing summaries:
 
 - `paper_summary.json`
 - `paper_summary.md`
 
-`outputs/ablation/` contains ablation evidence:
+`output/main/k_selected_full/` contains the retained selected-model artifact:
+
+- `prediction_points.csv`: `curve_id,Vr,Va,observed,predicted,residual`, used as the residual pool for residual-bootstrap sensitivity.
+
+`output/ablation/` contains ablation evidence:
 
 - `ablation_summary.csv`
 - `ablation_summary.json`
@@ -23,7 +27,7 @@
 - `ablation_metric_table.csv`
 - `energy_cluster_table.csv`
 
-`outputs/robustness/` contains robustness evidence:
+`output/robustness/` contains robustness evidence:
 
 - `robustness_summary.json`: compact paper-facing robustness summary.
 - `robustness_summary.md`: human-readable robustness summary.
@@ -33,4 +37,16 @@
 - `leave_one_vr_out_summary.csv`: selected K and key metrics for each excluded retarding-voltage curve.
 - `leave_one_vr_out_summary.json`: detailed leave-one-Vr-out fold decisions.
 
+`output/sensitivity/` contains sensitivity evidence:
+
+- `prior_strength/prior_strength_selection.csv`: selected K at each direct multiplier of the recorded production prior weights.
+- `prior_strength/prior_strength_channel_drift.csv`: fitted channels across prior-strength scans.
+- `uncertainty/channel_uncertainty_samples.csv`: all perturbation scorecard channel rows.
+- `uncertainty/channel_uncertainty_conditional_k4.csv`: conditional K=4 all-fits stress-test drift summary.
+- `uncertainty/channel_uncertainty_anchor_matched.csv`: production-anchor matched K=4 uncertainty summary.
+- `uncertainty/channel_uncertainty_anchor_matched_samples.csv`: matched per-scenario rows.
+- `uncertainty/uncertainty_selection_summary.csv`: selected-K distribution by perturbation family.
+- `sensitivity_summary.json`: compact sensitivity run summary.
+
 Generated checkpoint files are intentionally ignored by git.
+

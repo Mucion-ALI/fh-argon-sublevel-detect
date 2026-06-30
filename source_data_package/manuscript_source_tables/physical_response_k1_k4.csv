@@ -1,3 +1,3 @@
-﻿k,max_abs_late_bias,late_bias_threshold,max_high_vr_valley_lift,high_vr_valley_lift_threshold,score
+k,max_abs_late_bias,late_bias_threshold,max_high_vr_valley_lift,high_vr_valley_lift_threshold,score
 1,0.0388143934854647,0.1,0.10998505353927612,0.12,0.652343023840974
 4,0.020315914619259717,0.1,0.050161659717559814,0.12,0.31058648858613114

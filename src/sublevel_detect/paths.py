@@ -5,7 +5,7 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_INPUT = PROJECT_ROOT / "data" / "argon" / "FHdata.xlsx"
-DEFAULT_OUTPUT = PROJECT_ROOT / "outputs"
+DEFAULT_OUTPUT = PROJECT_ROOT / "output"
 
 
 def resolve_project_path(value: str | Path) -> Path:
@@ -29,6 +29,10 @@ def ablation_dir(output_root: str | Path) -> Path:
 
 def robustness_dir(output_root: str | Path) -> Path:
     return resolve_project_path(output_root) / "robustness"
+
+
+def sensitivity_dir(output_root: str | Path) -> Path:
+    return resolve_project_path(output_root) / "sensitivity"
 
 
 def default_input_text() -> str:

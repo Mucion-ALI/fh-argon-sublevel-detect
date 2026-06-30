@@ -1,0 +1,108 @@
+{
+  "forward_reverse_consistency": [
+    {
+      "n_levels": 1,
+      "forward_main_spacing": 11.5,
+      "learned_effective_spacing": 11.651579856872559,
+      "spacing_abs_delta": 0.1515798568725586,
+      "spacing_rel_delta": 0.01318085711935292,
+      "level_anchor_mean_abs_delta": 0.1515798568725586,
+      "forward_confidence": 0.9475202202349895,
+      "spacing_tolerance_rel": 0.2,
+      "envelope_consistency_status": "compatible",
+      "status": "consistent",
+      "soft_constraint_only": true
+    },
+    {
+      "n_levels": 2,
+      "forward_main_spacing": 11.5,
+      "learned_effective_spacing": 11.662076810862004,
+      "spacing_abs_delta": 0.1620768108620041,
+      "spacing_rel_delta": 0.014093635727130792,
+      "level_anchor_mean_abs_delta": 0.04042959213256836,
+      "forward_confidence": 0.9475202202349895,
+      "spacing_tolerance_rel": 0.2,
+      "envelope_consistency_status": "compatible",
+      "status": "consistent",
+      "soft_constraint_only": true
+    },
+    {
+      "n_levels": 3,
+      "forward_main_spacing": 11.5,
+      "learned_effective_spacing": 11.670812183085843,
+      "spacing_abs_delta": 0.17081218308584312,
+      "spacing_rel_delta": 0.014853233311812444,
+      "level_anchor_mean_abs_delta": 0.05017693837483724,
+      "forward_confidence": 0.9475202202349895,
+      "spacing_tolerance_rel": 0.2,
+      "envelope_consistency_status": "compatible",
+      "status": "consistent",
+      "soft_constraint_only": true
+    },
+    {
+      "n_levels": 4,
+      "forward_main_spacing": 11.5,
+      "learned_effective_spacing": 11.681735385045954,
+      "spacing_abs_delta": 0.181735385045954,
+      "spacing_rel_delta": 0.015803076960517737,
+      "level_anchor_mean_abs_delta": 0.11291670799255371,
+      "forward_confidence": 0.9475202202349895,
+      "spacing_tolerance_rel": 0.2,
+      "envelope_consistency_status": "compatible",
+      "status": "consistent",
+      "soft_constraint_only": true
+    },
+    {
+      "n_levels": 5,
+      "forward_main_spacing": 11.5,
+      "learned_effective_spacing": 12.04670926163567,
+      "spacing_abs_delta": 0.5467092616356695,
+      "spacing_rel_delta": 0.04753993579440604,
+      "level_anchor_mean_abs_delta": 0.4524812698364258,
+      "forward_confidence": 0.9475202202349895,
+      "spacing_tolerance_rel": 0.2,
+      "envelope_consistency_status": "compatible",
+      "status": "consistent",
+      "soft_constraint_only": true
+    },
+    {
+      "n_levels": 6,
+      "forward_main_spacing": 11.5,
+      "learned_effective_spacing": 12.084303317141853,
+      "spacing_abs_delta": 0.5843033171418526,
+      "spacing_rel_delta": 0.05080898409929153,
+      "level_anchor_mean_abs_delta": 0.4824382464090983,
+      "forward_confidence": 0.9475202202349895,
+      "spacing_tolerance_rel": 0.2,
+      "envelope_consistency_status": "compatible",
+      "status": "consistent",
+      "soft_constraint_only": true
+    },
+    {
+      "n_levels": 7,
+      "forward_main_spacing": 11.5,
+      "learned_effective_spacing": 12.114062031979017,
+      "spacing_abs_delta": 0.6140620319790173,
+      "spacing_rel_delta": 0.05339669843295803,
+      "level_anchor_mean_abs_delta": 0.46122210366385324,
+      "forward_confidence": 0.9475202202349895,
+      "spacing_tolerance_rel": 0.2,
+      "envelope_consistency_status": "compatible",
+      "status": "consistent",
+      "soft_constraint_only": true
+    },
+    {
+      "n_levels": 8,
+      "forward_main_spacing": 11.5,
+      "learned_effective_spacing": 12.13718605214467,
+      "spacing_abs_delta": 0.6371860521446706,
+      "spacing_rel_delta": 0.05540748279518875,
+      "level_anchor_mean_abs_delta": 0.43142664432525635,
+      "forward_confidence": 0.9475202202349895,
+      "spacing_tolerance_rel": 0.2,
+      "envelope_consistency_status": "compatible",
+      "status": "consistent",
+      "soft_constraint_only": true
+    }
+  ]
+}

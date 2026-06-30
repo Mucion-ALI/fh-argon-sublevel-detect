@@ -1,0 +1,8 @@
+prior_strength,condition,selected_k,selected_composite_rank_score,best_k_by_fit,best_k_by_d1_rmse,best_k_by_d2_rmse,best_k_by_structure,best_k_by_physical_response,best_k_by_bic,best_k_by_aic,w_prior_anchor,w_prior_gap,sweep_dir
+0.0,prior_0x,8,17.75,8,8,8,8,8,4,8,0.0,0.0,output/sensitivity/prior_strength/prior_0x/fullscan
+0.25,prior_0p25x,4,18.25,8,8,8,8,4,4,4,0.00014475202202349896,9.737601101174948e-05,output/sensitivity/prior_strength/prior_0p25x/fullscan
+0.5,prior_0p5x,4,15.0,8,8,8,8,4,4,4,0.0002895040440469979,0.00019475202202349896,output/sensitivity/prior_strength/prior_0p5x/fullscan
+1.0,prior_1x,4,13.75,4,8,8,4,4,4,4,0.0005790080880939959,0.0003895040440469979,output/sensitivity/prior_strength/prior_1x/fullscan
+2.0,prior_2x,8,20.75,8,8,8,8,6,4,4,0.0011580161761879917,0.0007790080880939958,output/sensitivity/prior_strength/prior_2x/fullscan
+4.0,prior_4x,8,16.25,8,8,8,8,8,1,5,0.0023160323523759834,0.0015580161761879917,output/sensitivity/prior_strength/prior_4x/fullscan
+

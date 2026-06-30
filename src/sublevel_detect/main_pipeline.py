@@ -110,8 +110,7 @@ def build_config(
 def prepare_forward_prior(cfg: model.Config) -> tuple[model.Config, Dict[str, Any]]:
     sweep_dir = Path(cfg.out_dir)
     evidence = model.build_forward_evidence(cfg)
-    priors = model.compile_forward_priors(evidence, cfg)
-    next_cfg = model.apply_forward_priors_to_config(cfg, priors)
+    next_cfg, priors = apply_forward_prior_with_strength(cfg, evidence, strength_factor=1.0)
     next_cfg.forward_prior_mode = "auto"
     next_cfg.forward_evidence_path = str(sweep_dir / "forward_evidence.json")
     model.safe_json_dump(evidence, sweep_dir / "forward_evidence.json")
@@ -122,6 +121,35 @@ def prepare_forward_prior(cfg: model.Config) -> tuple[model.Config, Dict[str, An
         "forward_evidence": evidence,
         "forward_priors": priors,
     }
+
+
+def apply_forward_prior_with_strength(
+    cfg: model.Config,
+    evidence: Dict[str, Any],
+    *,
+    strength_factor: float,
+) -> tuple[model.Config, Dict[str, Any]]:
+    factor = max(0.0, float(strength_factor))
+    priors = model.compile_forward_priors(evidence, cfg)
+    updates = dict(priors.get("config_updates", {}))
+    if factor <= 0.0:
+        updates.update(
+            {
+                "forward_prior_mode": "off",
+                "forward_main_spacing": 0.0,
+                "forward_spacing_std": 0.0,
+                "forward_confidence": 0.0,
+                "w_prior_anchor": 0.0,
+                "w_prior_gap": 0.0,
+            }
+        )
+    else:
+        updates["w_prior_anchor"] = float(model.safe_float(updates.get("w_prior_anchor"), cfg.w_prior_anchor) * factor)
+        updates["w_prior_gap"] = float(model.safe_float(updates.get("w_prior_gap"), cfg.w_prior_gap) * factor)
+    scaled_priors = dict(priors)
+    scaled_priors["strength_factor"] = factor
+    scaled_priors["config_updates"] = updates
+    return model.apply_forward_priors_to_config(cfg, scaled_priors), scaled_priors
 
 
 def run(

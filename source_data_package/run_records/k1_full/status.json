@@ -18,8 +18,8 @@
   "structure_monitor": 0.04606948047876358,
   "best_epoch": 3499,
   "early_stop": false,
-  "heartbeat": 1782639819.1162143,
-  "elapsed_seconds": 39.85062169999583,
+  "heartbeat": 1782740313.7066004,
+  "elapsed_seconds": 41.388594400006696,
   "eta_hint": "complete",
   "checkpoint_last": "checkpoint_last.pt",
   "checkpoint_best": "checkpoint_best.pt"

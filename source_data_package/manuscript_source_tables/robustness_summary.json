@@ -31,7 +31,7 @@
       "best_k_by_physical_response": 5,
       "best_k_by_bic": 1,
       "best_k_by_aic": 1,
-      "sweep_dir": "D:\\VScode_repository\\FrankHertz_Experiment\\SubLevel_Detect\\outputs\\robustness\\leave_one_vr_out\\vr_0p0\\fullscan"
+      "sweep_dir": "./output/robustness/leave_one_vr_out/vr_0p0/fullscan"
     },
     {
       "excluded_vr": 4.0,
@@ -51,7 +51,7 @@
       "best_k_by_physical_response": 4,
       "best_k_by_bic": 4,
       "best_k_by_aic": 4,
-      "sweep_dir": "D:\\VScode_repository\\FrankHertz_Experiment\\SubLevel_Detect\\outputs\\robustness\\leave_one_vr_out\\vr_4p0\\fullscan"
+      "sweep_dir": "./output/robustness/leave_one_vr_out/vr_4p0/fullscan"
     },
     {
       "excluded_vr": 6.0,
@@ -71,7 +71,7 @@
       "best_k_by_physical_response": 4,
       "best_k_by_bic": 4,
       "best_k_by_aic": 4,
-      "sweep_dir": "D:\\VScode_repository\\FrankHertz_Experiment\\SubLevel_Detect\\outputs\\robustness\\leave_one_vr_out\\vr_6p0\\fullscan"
+      "sweep_dir": "./output/robustness/leave_one_vr_out/vr_6p0/fullscan"
     },
     {
       "excluded_vr": 8.0,
@@ -91,7 +91,7 @@
       "best_k_by_physical_response": 4,
       "best_k_by_bic": 4,
       "best_k_by_aic": 4,
-      "sweep_dir": "D:\\VScode_repository\\FrankHertz_Experiment\\SubLevel_Detect\\outputs\\robustness\\leave_one_vr_out\\vr_8p0\\fullscan"
+      "sweep_dir": "./output/robustness/leave_one_vr_out/vr_8p0/fullscan"
     },
     {
       "excluded_vr": 10.0,
@@ -111,7 +111,7 @@
       "best_k_by_physical_response": 5,
       "best_k_by_bic": 1,
       "best_k_by_aic": 1,
-      "sweep_dir": "D:\\VScode_repository\\FrankHertz_Experiment\\SubLevel_Detect\\outputs\\robustness\\leave_one_vr_out\\vr_10p0\\fullscan"
+      "sweep_dir": "./output/robustness/leave_one_vr_out/vr_10p0/fullscan"
     }
   ]
 }

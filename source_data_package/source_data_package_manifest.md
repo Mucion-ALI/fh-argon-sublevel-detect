@@ -1,113 +1,325 @@
-﻿# Source Data Package Manifest
+# Source Data Package Manifest
 
-This manifest records the files included in the curated source-data package for the current manuscript. The corresponding source repository contains both the executable workflow and the `source_data_package/` directory used for file-level checking of figures, manuscript-facing tables, retained K=1/K=4 run records, and checkpoints.
+This manifest indexes the curated manuscript source-data package.
+All paths are relative to `SubLevel_Detect/source_data_package/`.
 
-Repository URL: `https://github.com/Mucion-ALI/fh-argon-sublevel-detect`  
-Source data package path: `source_data_package/`  
-Source Data DOI or archive URL: assigned by the journal or data archive if required  
-Hash algorithm: SHA256
+- Validation status: `pass`
+- Package files: 309
+- Manuscript source tables: 29
+- Figure assets: 71
+- Run-record files: 16
+- Selected output-result files: 193
 
-## Manuscript Source Tables
+## Files
 
-| file | size bytes | SHA256 |
-| --- | ---: | --- |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\source_data\ablation_summary.csv` | 1029 | `10C52519466606AC3F556E17ED2C43A89E27E4F62BEA9FF77062A09B36A0E178` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\source_data\analysis_summary.json` | 6138 | `F2B330702F209C3B35144402402BB6FBC3C78990E31DE0C87EB597DC0BCFE1A9` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\source_data\argon_nist_reference_levels.csv` | 892 | `E87673B1FE62A4FA2DC3A02579933F2EB41D06F45B4087696D82CB447D87CBFE` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\source_data\channel_parameters.csv` | 2959 | `F1A8684B484E5941B00F4BFE38B2A50B7B224AABE8C71C0EE53B3DBAF2D33ED8` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\source_data\channel_summary.csv` | 1109 | `7FE8DBCD2419D202461B1021817BF9AFDE011C6EE572574795397C1F135EB545` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\source_data\figure_manifest.csv` | 7919 | `AFB963B7CDE50DAFC48CF5B5BB6E391E4E3145BE95B2D88FEFDE194EDF5EA5CA` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\source_data\k1_k4_curve_metric_comparison.csv` | 2154 | `E399804BBD1651513E3AF5D6452EB3A1C56CB9722F822F02E8AD335358383BEC` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\source_data\k1_k4_curve_metrics.csv` | 1387 | `2ECF93B474D5F71F065F20E66AEBB1069F0CB05B4504308D1056635C2BCBCCCA` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\source_data\k1_k4_residual_points.csv` | 111774 | `ED858932B876613A49E41087A1FE22F11417DE5AE560BD6917F89E8F0B7BEDAC` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\source_data\leave_one_vr_out_summary.csv` | 1685 | `438734BB874E55ACE8123A16C639C5A141195129344C3D9454E91FE6CAA53C0E` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\source_data\model_selection_table.csv` | 2137 | `A3771EB05544CEA96010E8E6D13708F2F0327FB85BF761F95A735D47E69FB4FB` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\source_data\physical_response_k1_k4.csv` | 247 | `4FFE8E9F233155B12DAB82FA81C178219A4CFD5C21318F297750B9F01182083B` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\source_data\raw_curve_statistics.csv` | 553 | `01A6CA7C8293C66B4C4322FD27CC8664720ED909BF9CED72919B7571CC475546` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\source_data\robustness_summary.json` | 4493 | `E9FC00A7DFC5F9A1D0642C5922BD42D4E6AEDA60FD0993210D3E996755893528` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\source_data\scan_summary.csv` | 7530 | `C6B854776A9BD743FC0DA7047C0AD743EA00003938D17A679E6C372C7E9322AF` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\source_data\selector_weight_perturbation.csv` | 2096 | `AFE7B96767C9798BE3DF6E4A2204F45E8059DF072D74CE0A1D308CD36608EE54` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\source_data\selector_weight_perturbation_summary.csv` | 55 | `94F01CFBC512F843DE42C663EC55007A6948447E4789460E475E70E79181C548` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\source_data\structure_metrics.csv` | 2923 | `1FF83F93C7C84CFF5F2119A5540678178B82F000ECD887421BF04C939412D2FE` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\source_data\vr_physical_response.csv` | 12016 | `0E6BBF4E200AEABDC44620A75F8DDFFA4E6CE7F99FACCDA06F7FF4BDE4A37FEA` |
-
-## Generated Figures
-
-| file | size bytes | SHA256 |
-| --- | ---: | --- |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\main\fig1_raw_curves.pdf` | 32531 | `DCA8FA1B0B7622AA993409360C152E4E1D82E4D2ECF2170F4DB685E45CE6B085` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\main\fig1_raw_curves.png` | 489019 | `A701C12E590ECC32A0F537C9806978838CA2938E53A0E6B0A384FFB304569230` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\main\fig1_raw_curves.svg` | 31913 | `68763062F4EA4755DA2ECB7E8BEB218B98464CE66AA08FC876A7190798A809DC` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\main\fig2_channel_parameters.pdf` | 41560 | `44FACEB89EA163E51649124520562D6E6CA417E1D67FA0A6702FB0C686581C1E` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\main\fig2_channel_parameters.png` | 464552 | `D8E75C2670E9E6779229F1AFCF301692A558662324486AD3D6B1C0E7AE74F2D0` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\main\fig2_channel_parameters.svg` | 71247 | `E19C6B5785F3E544738642092E964B508EAD2186D23D303B4E19E34929F9686C` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\main\fig3_k1_fit_grid.pdf` | 37155 | `E3F6ACACECE089C540C512C41C1F3E0EC46830E52630F8B2C5B97BE0CF6F883B` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\main\fig3_k1_fit_grid.png` | 582077 | `C49886D842A5DD79FFA834518D60BC1382DDE43533C8531A911DE5D9D832D351` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\main\fig3_k1_fit_grid.svg` | 71657 | `FC5E532EF63A2B24F988D0B4DED673E2B40E77D3219924650482858D2D67AD7E` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\main\fig4_k4_fit_grid.pdf` | 37374 | `43D77A8F712368E153EEB8F1EEC1191F90DEAE580EDD7C7A49BEBD04F750E89F` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\main\fig4_k4_fit_grid.png` | 571054 | `6499B3D19E6E89804D7669C168188EE1F7685031570521EEAAE9BAE1FCA5BC0E` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\main\fig4_k4_fit_grid.svg` | 72283 | `0EF60F37789F8E952DFFF8F5117776D82818ECDDE0127E712EB2D8FD3742FA64` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\main\fig5_k1_k4_error_reduction_heatmap.pdf` | 55522 | `62D154E51FA11E68208A2DB525A9F9BF93D1A519B9C4DBBE23843AAE257139E4` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\main\fig5_k1_k4_error_reduction_heatmap.png` | 222847 | `8E04A3F162C42A0E954F0FCADFBE09FBFE95851A0B70201CB0695E17F34DD3C1` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\main\fig5_k1_k4_error_reduction_heatmap.svg` | 46301 | `599C186B6EF62CBBE5E68C98B4D4790C84822ECE7DCCFA23EF34345313B94CBB` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\main\fig6_model_selection_metrics.pdf` | 35754 | `ADE9655AD6744F8BA8A7DC7ABF21DC2AFA01E5BF7E18772136CB5CA3EEBC38D4` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\main\fig6_model_selection_metrics.png` | 658761 | `E682E026D38C13D025E879EA4A418C8A382840A0A57B343C53F6B33A5162C958` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\main\fig6_model_selection_metrics.svg` | 43576 | `628EA313143B48E2DC97FD70D360D943553A7FCEBBAE14FD73BB4965B2CF1992` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\main\fig7_physical_response_audit.pdf` | 27208 | `31B15AFDE53CD611577F7DFD543687E81792B20A16A6D7FCC4AD3F31C08B0F59` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\main\fig7_physical_response_audit.png` | 171739 | `68F2CB40BF7CD20C7FD1FDDF2665882E07F01DF94B5D3029531315D2017B5E62` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\main\fig7_physical_response_audit.svg` | 16691 | `5E5112716E5C95B5B1B5955FAFCB5064C34D0F37E92B294A558483D0E8674DAD` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\main\fig8_ablation_selected_k.pdf` | 28990 | `DEBD3D1CDB233A127DF697FE3AF98DE3617FE6632B2FFF4AFBC6EAE8D9CAF482` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\main\fig8_ablation_selected_k.png` | 154977 | `54FA512D6A698C844914616CE5620A0EAB2A93571214E7DE5C30C29607E90A05` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\main\fig8_ablation_selected_k.svg` | 14492 | `60C1D028F6E1783E63EC4B8B57835D4CADA0B1863ADAEEAF9B3E15FB5E9434A8` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\main\fig9_robustness_analysis.pdf` | 29813 | `E4078D4920E1D1BB15A1BDC2F6AD4018E1EE46E1570E1A9369DAE1B5060B78FA` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\main\fig9_robustness_analysis.png` | 175580 | `CC7F00E2916A3A019F6AF96282AD20B79C40AC9C2E0C416396451F608ECB4B8F` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\main\fig9_robustness_analysis.svg` | 19702 | `22B4B5B8E5C8C403FE63F58BE835EBCB9D2AC29A07AA78AB2670941E15F09242` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\supplementary\k1_curve_01_fit.pdf` | 30177 | `52DE06788E4801117B0ACAA00532B2E489788AFC621245F4E8ED2FE0999C8A5B` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\supplementary\k1_curve_01_fit.png` | 177565 | `AC41ED165418DBF69591572D5F557B51CC61180758A0B5F361BD0443CFC983AE` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\supplementary\k1_curve_02_fit.pdf` | 30112 | `F8CF575D858820166DC5973F4BB15CEFA1FEBE0767CFA6487D73E0375768032C` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\supplementary\k1_curve_02_fit.png` | 187110 | `5DC1E26240959D51254FE371570D4502DAC8DDAE0663A618E05A2E5B2292E781` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\supplementary\k1_curve_03_fit.pdf` | 30018 | `BE573FC711EDF3F4CB0F7F6C179291886FA2AC514DC95D487B1FB9532AEF8306` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\supplementary\k1_curve_03_fit.png` | 194210 | `FC2BCE3AE297986C431FEDAB071150BF0558535D397E461CE88A1831E22E2C2F` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\supplementary\k1_curve_04_fit.pdf` | 30525 | `F108D926650C9F77FB1A1B43070C46C3A53950DBF1CFA2DB09C615C803F2935E` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\supplementary\k1_curve_04_fit.png` | 198445 | `F4EB816498C52A3E6058FB0F447BBF5A79DB1D94DBFFB8F55C5CF89BED044B26` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\supplementary\k1_curve_05_fit.pdf` | 29923 | `D337E2741A9ACAE0082A44F41D45F15D270D2CFD51B58A6A1C75D87DD037DFBA` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\supplementary\k1_curve_05_fit.png` | 225259 | `3A14D2D7F9B884D8EA031F3F718CF968FB954C77817FD08626A9C0B4AA9ED86C` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\supplementary\k1_k4_residual_distribution.pdf` | 27159 | `45AF9308BA3F533B1316039BA0C0F49205AAAE746BBF8A6FF0C561146EAE9A18` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\supplementary\k1_k4_residual_distribution.png` | 102234 | `340A6E8CDAD3BA8E4B3FECC1EAF7A7B609ECB7392FDA4E57153B0FE9469E853D` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\supplementary\k1_training_trace.pdf` | 24941 | `919548C5E8EF1BAEF4F7865BFBE42C861C0347CC4D6EC4DCD1C885E8977B5E25` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\supplementary\k1_training_trace.png` | 126477 | `82AB2BE68A2E99ECAE5BB01E2A19892E802149C0F7CC169C9A1F319F5D70CA74` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\supplementary\k4_curve_01_fit.pdf` | 30179 | `156655F73890DF0979842887F71D880F088337A7CF0AF260B094DEF540CF2A07` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\supplementary\k4_curve_01_fit.png` | 177982 | `B690E0AE820C2121F871A85BFA833256E5ACB478FE751C3636A86017B1AC0331` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\supplementary\k4_curve_02_fit.pdf` | 30717 | `1A55EB05A754972B07B3A4D16C34EF169D91F4A81BD0ACB24E6A62D420BB13A6` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\supplementary\k4_curve_02_fit.png` | 184721 | `54F916A446D51E1AB53FA8DDDD28863F40A8A642AD76210A8EA1D11FBF9A3589` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\supplementary\k4_curve_03_fit.pdf` | 30592 | `797C57CF49873E775895BDF75D3F79B79591A237506BEE01596FEC3B76A90C96` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\supplementary\k4_curve_03_fit.png` | 194943 | `CBF7762195587A247A75254561C0A30824B0972C764D9933CA2F6DF1E443692B` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\supplementary\k4_curve_04_fit.pdf` | 29933 | `7581491BC45B536B5C3E85BE873FF458864C123865ED9C6296DF14B21B44D694` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\supplementary\k4_curve_04_fit.png` | 195919 | `3320371836BC10A742956A24AB2E2F3933182A831E8AE7CF0A1BDE7FA5FC948E` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\supplementary\k4_curve_05_fit.pdf` | 29972 | `947029B9579AA338A68785BFF9D76D5860B496C9C39EFA2A782288BFC792329D` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\supplementary\k4_curve_05_fit.png` | 228297 | `EAB96509BD0C872CF03C05D08DD0C93A8117CD1FEB5640F2034FEAE652FBA2FF` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\supplementary\k4_training_trace.pdf` | 24969 | `CDA53AD67FDD3B6E1C8154278C00CB25F078C3FEB44E2ED4BEDF6A280555A738` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\supplementary\k4_training_trace.png` | 127925 | `C518D7FB6C14AFA7D2C5E0FC03A2BA1AA2082FA6C3FB3E770D8DF161E561DF96` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\supplementary\peak_valley_segment_diagnostics.pdf` | 28286 | `2FB938FF02A301CC6C6B0A0BC3EF3999F2E4A4D431FB3C732351B4B06F681F5E` |
-| `ESSAY\ajp_argon_sublevel_manuscript\visualization\figures\supplementary\peak_valley_segment_diagnostics.png` | 135392 | `3BA952526DD270B59CD0098F4A5F67A63C1F21644913516E8A36C6F01FA33C77` |
-
-## Retained K=1 And K=4 Run Records
-
-These files are not part of the public GitHub repository. They should be archived in the supplementary Source Data package if figure-level reproduction of the current manuscript plots is required without retraining.
-
-| file | size bytes | SHA256 |
-| --- | ---: | --- |
-| `Frank_Hertz_Experiment\Core_Data\artifacts\argon_kneutral_v25\k1_full\checkpoint_best.pt` | 8735 | `6B68EAD142E1233E8503D2A8557BC4B87112B3CFD10FDF091C35B438D7D1157C` |
-| `Frank_Hertz_Experiment\Core_Data\artifacts\argon_kneutral_v25\k1_full\checkpoint_last.pt` | 68161 | `5928B68A3CA8F8845EE0EC30AD168605C30EB499F87F57C271C9E43FF6E5C6B4` |
-| `Frank_Hertz_Experiment\Core_Data\artifacts\argon_kneutral_v25\k1_full\metrics_best.json` | 28586 | `25230BD55AFC0A4BFA59DF8CF9F87F5394E6401F5EBEB869CF10E096234D5F0E` |
-| `Frank_Hertz_Experiment\Core_Data\artifacts\argon_kneutral_v25\k1_full\params_best.json` | 1105 | `8FD72F3CAE6B54627DC8FC1E2ED5AFF4F40EA5544E381F3D250F580B1A1B6292` |
-| `Frank_Hertz_Experiment\Core_Data\artifacts\argon_kneutral_v25\k1_full\scorecard.json` | 34321 | `A9433A70907CC9474DEFE1F142F2AC6EBB6693526C43B09EB3BCEE437B0A2150` |
-| `Frank_Hertz_Experiment\Core_Data\artifacts\argon_kneutral_v25\k1_full\status.json` | 822 | `69F1A53C5BC4FD48E24882DED29E6CEB086D70571FA28701A0BFFC79EF35B5E0` |
-| `Frank_Hertz_Experiment\Core_Data\artifacts\argon_kneutral_v25\k1_full\train_log.csv` | 88245 | `1ADAE1C6664CBB4A7325E40D88DEA4F94FEDDF5CE124B16F9047B621991BF97D` |
-| `Frank_Hertz_Experiment\Core_Data\artifacts\argon_kneutral_v25\k_selected_full\checkpoint_best.pt` | 8799 | `073EB0C81D3240F443162DA2AFB710F5C5770F8E7EFA505528827BF1E7665224` |
-| `Frank_Hertz_Experiment\Core_Data\artifacts\argon_kneutral_v25\k_selected_full\checkpoint_last.pt` | 68219 | `2108FE30DA8296DD51DCE00EA300AB4FCCDD795CB0DCE5AD21AD3D6B328664BC` |
-| `Frank_Hertz_Experiment\Core_Data\artifacts\argon_kneutral_v25\k_selected_full\metrics_best.json` | 28584 | `0BB567C79CF04FF0C1D164E10F87A10CAFE2C16D06B6E5599570A5085DA53561` |
-| `Frank_Hertz_Experiment\Core_Data\artifacts\argon_kneutral_v25\k_selected_full\params_best.json` | 1376 | `5DD54C39C230FC05B3697999458B19239B907522BC305FA293C8AA9BDD4CA081` |
-| `Frank_Hertz_Experiment\Core_Data\artifacts\argon_kneutral_v25\k_selected_full\scorecard.json` | 34795 | `17899EBA0D08690D759C696B5B4B5163F75ADF10767EE9FE364954A064CAF958` |
-| `Frank_Hertz_Experiment\Core_Data\artifacts\argon_kneutral_v25\k_selected_full\status.json` | 821 | `CD7590B03BFC76AD7B7B09B44834B3DE9FE0A90FE371EE9E88FC492FB6F83BE8` |
-| `Frank_Hertz_Experiment\Core_Data\artifacts\argon_kneutral_v25\k_selected_full\train_log.csv` | 88628 | `95EEF4553E8770B2F99BDB9E7E0882B2780D0F6602FB29D45DAFD2E727BE0C7E` |
+| Package path | Category | Size bytes | SHA256 |
+| --- | --- | ---: | --- |
+| `figures/main/fig10_prior_strength_sensitivity.pdf` | `figure_main` | 39191 | `03d03955afe226e013afc7fdc3a43825ef741a5b03cbfd5a83c02a8a983fc30d` |
+| `figures/main/fig10_prior_strength_sensitivity.png` | `figure_main` | 268390 | `a61ff50f1bd2359448a5265a5faa498458d11915b5e0786d6b0998353148e0b4` |
+| `figures/main/fig10_prior_strength_sensitivity.svg` | `figure_main` | 24032 | `f14f27b05685b68e41f67c34254e8c9045e332c8fa3d113e22f4102c6704ba9f` |
+| `figures/main/fig10_prior_strength_sensitivity.tiff` | `figure_main` | 301440 | `0d6c8e732ce9ba90c0ca982f22b34278bb1614cced9729113f0c2e5d8f5e2a54` |
+| `figures/main/fig11_channel_uncertainty.pdf` | `figure_main` | 38274 | `348ed60e17dc4e99e1aa3ea03fc7da02f8e59f18c43fded8c51f0f9275cab8f2` |
+| `figures/main/fig11_channel_uncertainty.png` | `figure_main` | 178654 | `39b0396ca5e2db8d79b21b3153bf06ffb10d3a510f05ea0cd4da4155c30982aa` |
+| `figures/main/fig11_channel_uncertainty.svg` | `figure_main` | 15729 | `5d922a029722655494cc16c93abde47687eb7540074cb4ccc1cee2e6b21bc7cc` |
+| `figures/main/fig11_channel_uncertainty.tiff` | `figure_main` | 221704 | `b75e4aed597ee1e1dc9d10b14c206b98c7fc46d60a73d65bbb161854403de1d6` |
+| `figures/main/fig1_raw_curves.pdf` | `figure_main` | 32509 | `3060d675b2adc2d39e1195a42a42be7c8a8775496dac1e71d2f5c8b85137e507` |
+| `figures/main/fig1_raw_curves.png` | `figure_main` | 489962 | `fac93519c23f4144b77eed868d096858703cccc2d728be305c268e4b55cd203f` |
+| `figures/main/fig1_raw_curves.svg` | `figure_main` | 31914 | `35e70f00a109553fad62ddd796490f5d27615b2a45d06a5b834a729e34b0785b` |
+| `figures/main/fig2_channel_parameters.pdf` | `figure_main` | 41539 | `d5525c6bf03870e28434089fc77079f779caf180e7d1b2bc2d2f1cdc84e10b8d` |
+| `figures/main/fig2_channel_parameters.png` | `figure_main` | 464552 | `cef45a66fcf0a95ff3de0eefa1ceb581c22992e3ec883acd3243d487c7967e58` |
+| `figures/main/fig2_channel_parameters.svg` | `figure_main` | 71247 | `68991486a40a826a679af8d8c243e24c20953928918bafea5fc7b0b3671482dc` |
+| `figures/main/fig3_k1_fit_grid.pdf` | `figure_main` | 37137 | `aa6e4fc27f5521f32eec26673446f52ee08e7e8b61bb1a60d3545a44e77c8116` |
+| `figures/main/fig3_k1_fit_grid.png` | `figure_main` | 582077 | `7f84d5f48cc7cac3dfa4c41fe67d249e8fd6e83f78149af02b74f72aea2af01b` |
+| `figures/main/fig3_k1_fit_grid.svg` | `figure_main` | 71657 | `97a9fe8415ca3175441bbba13f3ee46bcf06208ed66920c01ab4abb0b9a47f4b` |
+| `figures/main/fig4_k4_fit_grid.pdf` | `figure_main` | 37356 | `d085d2dca98e8e137e4baeea95069f89805e73dc9031639888385d00c8ddac90` |
+| `figures/main/fig4_k4_fit_grid.png` | `figure_main` | 571054 | `ddb52b5502ebce421a971a38df8f00ce702824e3abe0efa49a8001781e7eba81` |
+| `figures/main/fig4_k4_fit_grid.svg` | `figure_main` | 72283 | `e1dc2cb8e9b098cb5a5d61271f9c70c6b29068e6517ab02a8a3983c82d1fc374` |
+| `figures/main/fig5_k1_k4_error_reduction_heatmap.pdf` | `figure_main` | 55500 | `6edc1fb2920f6896f307aef6d26f0fd23c7b020ef1badc35d67b21485c4b43a7` |
+| `figures/main/fig5_k1_k4_error_reduction_heatmap.png` | `figure_main` | 222847 | `afe48518fa4bd07841ee97d63d5775fd560e6b36d8746ea2131d45e97e126e3f` |
+| `figures/main/fig5_k1_k4_error_reduction_heatmap.svg` | `figure_main` | 46301 | `8fb51eac2583adca7117f39c63910b1578b8dafeaa2da7e35cc90ab76b44aacb` |
+| `figures/main/fig6_model_selection_metrics.pdf` | `figure_main` | 35727 | `144e4c5e33a5320f4ea8c20f1ed4b3e78d6aa5f1aa01509febfc5702921446f1` |
+| `figures/main/fig6_model_selection_metrics.png` | `figure_main` | 658761 | `d78b4d6205a0dbbfff84341c6000667df076502769099e30afd61a1e99eba3b6` |
+| `figures/main/fig6_model_selection_metrics.svg` | `figure_main` | 43576 | `a064e24e4a5b37c57b6e02af72aa84bfe41e394ac403456b872d46d3383cae1b` |
+| `figures/main/fig7_physical_response_audit.pdf` | `figure_main` | 27186 | `4347edbb2da0ad9d6b9360cbcce51128d97c6d62aced4258820e29c7d381d18f` |
+| `figures/main/fig7_physical_response_audit.png` | `figure_main` | 171739 | `0c0333cbb1ff5f0dd29c4a88cff0887167750f520f3fa7346c9893ad6da31dd3` |
+| `figures/main/fig7_physical_response_audit.svg` | `figure_main` | 16691 | `a72ca269d12b52bc29a0531809ad83758d02208a14169001d6927e7328fe0118` |
+| `figures/main/fig8_ablation_selected_k.pdf` | `figure_main` | 28970 | `9c3c7fcf84a037c233047578634e6b7bfe98232c30fcd752805217353d79551f` |
+| `figures/main/fig8_ablation_selected_k.png` | `figure_main` | 154977 | `1922ccbb7f76f5ff92db258b812d95d797db523ac8e8d694d24a0288ac0e22f1` |
+| `figures/main/fig8_ablation_selected_k.svg` | `figure_main` | 14492 | `033507a28ebc0d7e12fbbb827cd1cb1e6f5deb14c537bdc80a1475cc7ce6d233` |
+| `figures/main/fig9_robustness_analysis.pdf` | `figure_main` | 29790 | `94a22c8f36457dbfbb7e8629069d3d076edc86f6e06b56278e5e07e4772375f2` |
+| `figures/main/fig9_robustness_analysis.png` | `figure_main` | 175580 | `d23ff21e04a091ee9ea90808fb2a921f1ec6837522c9468f1ce8cfddf9d622a3` |
+| `figures/main/fig9_robustness_analysis.svg` | `figure_main` | 19702 | `0dfebc12d50124b488e0142293cb7703d5948b60bb197d271bda8d10ddbf34cf` |
+| `figures/supplementary/k1_curve_01_fit.pdf` | `figure_supplementary` | 30156 | `2ddf75936dc132a605e36701620ac341bd188976e8b5abc32340684c0b83bde6` |
+| `figures/supplementary/k1_curve_01_fit.png` | `figure_supplementary` | 177565 | `618c75f1c55b80ccc72d31fc6d126c5ae10a8ba6980073a0554a01b5071b9ee2` |
+| `figures/supplementary/k1_curve_02_fit.pdf` | `figure_supplementary` | 30091 | `d15406a355c52bba8060f1df1d727654377a75e630af752864504ca036a64003` |
+| `figures/supplementary/k1_curve_02_fit.png` | `figure_supplementary` | 187110 | `59943eac3922a5375f02c7b813f2da675c14f5878e1ca780adb7d65a899e6903` |
+| `figures/supplementary/k1_curve_03_fit.pdf` | `figure_supplementary` | 29997 | `ff92967e276a8026e815446e7804f3026188b5829ab5772dc2a793b709906354` |
+| `figures/supplementary/k1_curve_03_fit.png` | `figure_supplementary` | 194210 | `32d3ba5ca6362620d87a7798ddd374c400c51928851663975d2ba8a018f03331` |
+| `figures/supplementary/k1_curve_04_fit.pdf` | `figure_supplementary` | 30508 | `8e64bb9fd5da74d990399e85b6f86e3d9529931b41e5b86838a8e7a5379791bd` |
+| `figures/supplementary/k1_curve_04_fit.png` | `figure_supplementary` | 198445 | `b390e3866bd667aaa6a56415f1fdf3cb1174f167f6ba2c622f84d3bb4a75eccd` |
+| `figures/supplementary/k1_curve_05_fit.pdf` | `figure_supplementary` | 29902 | `fb4cc24d4b4272c53dfc2a62da5df410b9367615704bc3838a87d644aa60f463` |
+| `figures/supplementary/k1_curve_05_fit.png` | `figure_supplementary` | 225259 | `a79780e70bd1b37c865955f73010768f1bb0f88e8aa4527ce8d15492c1a9eb38` |
+| `figures/supplementary/k1_k4_residual_distribution.pdf` | `figure_supplementary` | 27138 | `a8dfea83eb9009e1f9e95bf79a69b16d6d2888d360ca60fc6d8afcf4dd8a281b` |
+| `figures/supplementary/k1_k4_residual_distribution.png` | `figure_supplementary` | 102234 | `d3903cbc069177edfa61f938b6ad5fb343bcef3dc0c82c8a03affd1db6497e9a` |
+| `figures/supplementary/k1_training_trace.pdf` | `figure_supplementary` | 24920 | `92048460292c0b405c3b9fc3c23205c03c5439a4b6abb27ff23646b080677c7c` |
+| `figures/supplementary/k1_training_trace.png` | `figure_supplementary` | 126477 | `b903dc0103a0e82690be6e57fd3e8c755642f4fd9cae24554840d0f6d9c08dbf` |
+| `figures/supplementary/k4_curve_01_fit.pdf` | `figure_supplementary` | 30158 | `ae7959bf84419fe2c99697c7ac6825584bc02d0b96f13c8b8a64a8df117d65e2` |
+| `figures/supplementary/k4_curve_01_fit.png` | `figure_supplementary` | 177982 | `a8ee88995d2f48b8624f47633030540f366a18d84c8ee12a964d7f0c2bedc489` |
+| `figures/supplementary/k4_curve_02_fit.pdf` | `figure_supplementary` | 30700 | `a69621207c3a8a17faca61d3dc884f7e68648f73ed6f9282d2e91c56d4cd7965` |
+| `figures/supplementary/k4_curve_02_fit.png` | `figure_supplementary` | 184721 | `2e8f9e93c3a3ca8f7df01c53ddf523553409ba3be8324dc653398c3f73ce6565` |
+| `figures/supplementary/k4_curve_03_fit.pdf` | `figure_supplementary` | 30575 | `24befeb7c12b1f102fd0f0fb2640f806e285d2b5e016f0e61e484b0fb6f4ab11` |
+| `figures/supplementary/k4_curve_03_fit.png` | `figure_supplementary` | 194943 | `b735c4fad6c577ffd2b71d94c6c9ec4a2003600ca97d6ecc114ecd192c1ffa87` |
+| `figures/supplementary/k4_curve_04_fit.pdf` | `figure_supplementary` | 29912 | `4352722133906bfc4c7bf040171c97e47540d94603c0e0b88bd81e312797a083` |
+| `figures/supplementary/k4_curve_04_fit.png` | `figure_supplementary` | 195919 | `bca9f1abb46de404dd3728f782c768b484fdc057df6e039057d6a4d9dd16ced0` |
+| `figures/supplementary/k4_curve_05_fit.pdf` | `figure_supplementary` | 29951 | `824d009a328ae7c71188b7b55b0857837381191128a32d6eb8db24160c01d6a3` |
+| `figures/supplementary/k4_curve_05_fit.png` | `figure_supplementary` | 228297 | `c97d3c7c70f044565d2799dd66d6a8316c401ebc2a9a224d8610acb4eeed646c` |
+| `figures/supplementary/k4_training_trace.pdf` | `figure_supplementary` | 24948 | `28b9e173bdf6e0e3e0a208cd093000ed3d942705191425f7dc1d39e7324156bd` |
+| `figures/supplementary/k4_training_trace.png` | `figure_supplementary` | 127925 | `afadd2b62ae14dd3c3b6868da63e5bbd5711d595ac4656d3c58a5638da0af417` |
+| `figures/supplementary/peak_valley_segment_diagnostics.pdf` | `figure_supplementary` | 28276 | `ce7ab290129fefce8c7e38d0b3846cd1482a1e7621a2ad295d8b9083b5b8102d` |
+| `figures/supplementary/peak_valley_segment_diagnostics.png` | `figure_supplementary` | 135392 | `4cc879fcab526dd2b24a3026a56fd3d7a07708de9fd7652541848e4cfc9160d0` |
+| `figures/supplementary/residual_bootstrap_noise_scale_check.pdf` | `figure_supplementary` | 31051 | `1d06a0005b4162a124b43e7c69898ae930987e1f5a18fe7d39353b8fcd89dcdd` |
+| `figures/supplementary/residual_bootstrap_noise_scale_check.png` | `figure_supplementary` | 71535 | `f79c3a823b3ecf84e6a5eafc143e2668005cc44e40009e60a73f741ea82ae723` |
+| `figures/supplementary/residual_bootstrap_noise_scale_check.svg` | `figure_supplementary` | 5383 | `b2c46783cb6f20879bb7277eb1fe321dc37e5dfe331c4d22e9dc14072a2c28a7` |
+| `figures/supplementary/residual_bootstrap_noise_scale_check.tiff` | `figure_supplementary` | 102140 | `81be7120cc9f152a8dbe9e2ff15f39687cf193c962021bbe6006e7b8d8831bd7` |
+| `figures/supplementary/sensitivity_selected_k_distribution.pdf` | `figure_supplementary` | 31648 | `6a9491a0bf3a530a9af5a9facbceb84b3a95ca5a81579f8764a5959ee5f82397` |
+| `figures/supplementary/sensitivity_selected_k_distribution.png` | `figure_supplementary` | 105538 | `32fece431fed2cd2e777e5cf5f6a64225e347490249c6a8de10a2b739d66dacd` |
+| `figures/supplementary/sensitivity_selected_k_distribution.svg` | `figure_supplementary` | 17764 | `88a6ea3df98628e5f3b6624f2093ab53ab1e8968ff7910cd363994206e1db458` |
+| `figures/supplementary/sensitivity_selected_k_distribution.tiff` | `figure_supplementary` | 217020 | `165dbe17c34778a34cc7c98c68b4b82055319392f78303d9dc10f8c9bee14e84` |
+| `manuscript_source_tables/ablation_summary.csv` | `manuscript_source_table` | 999 | `1ed208b93acb1eeb4f559ed585d569b55602b92eb4d4a91ae78e73626c5f37b5` |
+| `manuscript_source_tables/analysis_summary.json` | `manuscript_source_table` | 6405 | `2d7bea9608e0d92f3f5d38321571f4bbe7b77574308c55502c9ffe927d7b56a3` |
+| `manuscript_source_tables/argon_nist_reference_levels.csv` | `manuscript_source_table` | 884 | `c4f355ab0e491f3d771fb6508cb41357c47038a1b7ab4ca1682d7bbeea673404` |
+| `manuscript_source_tables/channel_parameters.csv` | `manuscript_source_table` | 2919 | `3e33fa3d72f017f018e58417d18c52369ed4b81b4c8f53a0200db8dbd424d230` |
+| `manuscript_source_tables/channel_summary.csv` | `manuscript_source_table` | 1097 | `e4716876a30cec218eedf67f3192a22d7a76edd1a099eeed50db0edacca52654` |
+| `manuscript_source_tables/channel_uncertainty_anchor_matched.csv` | `manuscript_source_table` | 1378 | `8ce7b61acdd1fcbae2fd8b795c5629800c5ffa45397c6b5f5426ee82ec91c59d` |
+| `manuscript_source_tables/channel_uncertainty_anchor_matched_samples.csv` | `manuscript_source_table` | 277928 | `cd4ccf286134eb38190b4ac67d7d78caa3684e735689cc0012b0be454a2b7aef` |
+| `manuscript_source_tables/channel_uncertainty_conditional_k4.csv` | `manuscript_source_table` | 958 | `e688589354a8975fe321f506f2956a57b7e85f06f581cff5ddd5ca1a173c9797` |
+| `manuscript_source_tables/channel_uncertainty_samples.csv` | `manuscript_source_table` | 1693978 | `903be85fa1ec193e7461682493a9177afad5eff1d9d8ce1659986a981d34b436` |
+| `manuscript_source_tables/channel_uncertainty_summary.csv` | `manuscript_source_table` | 958 | `e688589354a8975fe321f506f2956a57b7e85f06f581cff5ddd5ca1a173c9797` |
+| `manuscript_source_tables/figure_manifest.csv` | `manuscript_source_table` | 6299 | `7e028a7c703cd25e93b3e1afdecb2d2dabfc6efae83e57ec09a33b032e63cb25` |
+| `manuscript_source_tables/k1_k4_curve_metric_comparison.csv` | `manuscript_source_table` | 2145 | `88fc7a6d10a05ecdf36e3ab999b73e2bc3620c8a2a8a7cd716a82a231cae5520` |
+| `manuscript_source_tables/k1_k4_curve_metrics.csv` | `manuscript_source_table` | 1373 | `a4008a28e4aff64b804379d5432ff157e07a278ebc5d474675f350c3ed93dbb9` |
+| `manuscript_source_tables/k1_k4_residual_points.csv` | `manuscript_source_table` | 110160 | `fd23eb42ef597d9bc5f06c030527dd8139225e79ee586e029aad58b728a4c798` |
+| `manuscript_source_tables/leave_one_vr_out_summary.csv` | `manuscript_source_table` | 1379 | `986ca148fbf4e1de81bba21e6fe0d4d484c59dd38077d3fc54e52e25be095a63` |
+| `manuscript_source_tables/model_selection_table.csv` | `manuscript_source_table` | 2128 | `4f4345ae25670562d41dc1073f75daadb5529e4c6bf869b6a473cdf2db54e416` |
+| `manuscript_source_tables/physical_response_k1_k4.csv` | `manuscript_source_table` | 241 | `a7675ac91975463fff743043aa1553b4b01b7354aeb3208268818f12b8f2d78a` |
+| `manuscript_source_tables/prior_strength_channel_drift.csv` | `manuscript_source_table` | 207218 | `1b72862dc80037f1fa9ec3d3f9018b6e2462ba524df13faff0b583991e4f7c72` |
+| `manuscript_source_tables/prior_strength_selection.csv` | `manuscript_source_table` | 992 | `3dbfb6b492f5c91ba29b8813ea092948cebce04ce1e28597e4ceba3824651963` |
+| `manuscript_source_tables/raw_curve_statistics.csv` | `manuscript_source_table` | 544 | `45d927caeb9eb790afc3ff54e50497e6e4be56eb61cd7dc2d1c798925ab4d8d9` |
+| `manuscript_source_tables/residual_bootstrap_scale_check.csv` | `manuscript_source_table` | 314 | `d85511148400cab8c768d8a559ef9ba30424345505c4c2afc29eb0ec91b9583f` |
+| `manuscript_source_tables/robustness_summary.json` | `manuscript_source_table` | 4047 | `bad75654982e7279fcaad925efb1c297c40c7e6a6fc20f75fb43c88db0ca3900` |
+| `manuscript_source_tables/scan_summary.csv` | `manuscript_source_table` | 5772 | `093df097330695bf632c2e6846482e00939e7067ef217e91face58641c1a15f7` |
+| `manuscript_source_tables/selector_weight_perturbation.csv` | `manuscript_source_table` | 2072 | `a45c91d056e16b1710f62feb733e7402a44466e4a4db3ffaa1530159587c605a` |
+| `manuscript_source_tables/selector_weight_perturbation_summary.csv` | `manuscript_source_table` | 53 | `b6a8a3cd7a5eedf3b9e55e4a2da6aa2a28f9bca412cd6dde666b72d0d5419147` |
+| `manuscript_source_tables/sensitivity_summary.json` | `manuscript_source_table` | 636 | `001dd18b385ddf0d2f576fa0dbc63c421a1bcea04a485ae32e0f7ac0ead2c15a` |
+| `manuscript_source_tables/structure_metrics.csv` | `manuscript_source_table` | 2898 | `cbc4efe3d9752db58f67fbc743faada30f343bc0902856d2dda7514cd9701693` |
+| `manuscript_source_tables/uncertainty_selection_summary.csv` | `manuscript_source_table` | 402 | `3821be2fefa23615e202dddf4f8e7c96c253ee81aea227a764b6571aa77d03a1` |
+| `manuscript_source_tables/vr_physical_response.csv` | `manuscript_source_table` | 11895 | `bc71c534df1095dad35c19dea80e7793170275720a8095dbe9c3b1352c23d5c7` |
+| `output_results/ablation/ablation_metric_table.csv` | `output_ablation` | 10594 | `6b0ab5bc1793d87b763d136f8993e90667feb39d2c9831679a65552cbf201458` |
+| `output_results/ablation/ablation_report.md` | `output_ablation` | 635 | `3103951ca40f923afc84ea878489480a272374ad084996bd1d6c060977112228` |
+| `output_results/ablation/ablation_summary.csv` | `output_ablation` | 999 | `1ed208b93acb1eeb4f559ed585d569b55602b92eb4d4a91ae78e73626c5f37b5` |
+| `output_results/ablation/ablation_summary.json` | `output_ablation` | 584214 | `b7fac0133e35bb2f8a1986010fb174c08e6d57dbf10aac7df7304c0124692fb5` |
+| `output_results/ablation/energy_cluster_table.csv` | `output_ablation` | 2581 | `c755c39dde7ece66c890de3ab1aa7998e3e453f16f7853392ffd179c47d249a1` |
+| `output_results/ablation/no_forward_anchor_gap/confirm_round/iteration_summary.json` | `output_ablation_confirm_round` | 39900 | `cd2b6272da38d6aa2241ccfecf1d4ce18efcdf7cb80bae59d7004a74a861cbad` |
+| `output_results/ablation/no_forward_anchor_gap/confirm_round/metrics_compare.json` | `output_ablation_confirm_round` | 39900 | `cd2b6272da38d6aa2241ccfecf1d4ce18efcdf7cb80bae59d7004a74a861cbad` |
+| `output_results/ablation/no_forward_anchor_gap/confirm_round/runtime_summary.json` | `output_ablation_confirm_round` | 106 | `4df0a61355462b0a043da5529d050e38691fff1a18b9211ae898f4d0aa7c541e` |
+| `output_results/ablation/no_forward_anchor_gap/fullscan/channel_degeneracy_summary.csv` | `output_ablation_fullscan` | 3053 | `797ca0daa9c101c1165fa9f684e533cf49514dfba7eff46e392a03f932904d12` |
+| `output_results/ablation/no_forward_anchor_gap/fullscan/channel_degeneracy_summary.json` | `output_ablation_fullscan` | 8680 | `432b7630212c143dfcc7a7e4124af547fdd215f8c58ca57e1fd1c7424be014cd` |
+| `output_results/ablation/no_forward_anchor_gap/fullscan/class_structure_summary.csv` | `output_ablation_fullscan` | 9193 | `27c1de8fc9cf24d165ac07198c0aaa89ac8881ed981f8b39f45e77042690f7ae` |
+| `output_results/ablation/no_forward_anchor_gap/fullscan/config_used.json` | `output_ablation_fullscan` | 2473 | `ac8a2319ee252189026c7a78e3b4b76a78570a946f137603b5889e33b93cb572` |
+| `output_results/ablation/no_forward_anchor_gap/fullscan/curve_structure_summary.csv` | `output_ablation_fullscan` | 20047 | `a49b0de7e0e3444448c9126ab0dc720c0e902d8f27b3322f63b8c9ff4c9d80d7` |
+| `output_results/ablation/no_forward_anchor_gap/fullscan/decision.json` | `output_ablation_fullscan` | 53103 | `0b7a0c4af0e431f6ed5547a8aaffd0befd3397e22c6ab9b1f0505cd6301070ec` |
+| `output_results/ablation/no_forward_anchor_gap/fullscan/energy_cluster_table.csv` | `output_ablation_fullscan` | 479 | `07f783f01bfc9bb49ece12887c84f68d5586eeb24b33dcaf44825e8c793e52cc` |
+| `output_results/ablation/no_forward_anchor_gap/fullscan/energy_cluster_table.json` | `output_ablation_fullscan` | 2827 | `d46e0ad98cf0dfe2424f25aedceac44e66f00f8c93adbd5d4ecbf64f232eac09` |
+| `output_results/ablation/no_forward_anchor_gap/fullscan/forward_reverse_consistency.csv` | `output_ablation_fullscan` | 1 | `01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b` |
+| `output_results/ablation/no_forward_anchor_gap/fullscan/forward_reverse_consistency.json` | `output_ablation_fullscan` | 39 | `dc3e7281a20b19def2c3cb1cb6a4f2be052f833ce9c326d252728f2fd2052314` |
+| `output_results/ablation/no_forward_anchor_gap/fullscan/hyperopt_summary.csv` | `output_ablation_fullscan` | 1116 | `3b1eab09650410d46ed2ee60489bd1760ff8aa464249ca5e38b21ae0724ec8ea` |
+| `output_results/ablation/no_forward_anchor_gap/fullscan/hyperopt_summary.json` | `output_ablation_fullscan` | 175923 | `b4fbbb27230a096f8da4d86f7ee6f6028d7ddaf4a28558bb3750e6cb73ce6356` |
+| `output_results/ablation/no_forward_anchor_gap/fullscan/level_weight_diagnostics.csv` | `output_ablation_fullscan` | 2985 | `e269a142df93afbff0b8a3f1c3df96a1209956633eec17de1d6c964ae946e54c` |
+| `output_results/ablation/no_forward_anchor_gap/fullscan/level_weight_diagnostics.json` | `output_ablation_fullscan` | 7370 | `e33ffacc6e60c9417a5fbcfd8b2b2d83e7d795e9c17abb30f60fd77ccc273eb9` |
+| `output_results/ablation/no_forward_anchor_gap/fullscan/model_selection_table.csv` | `output_ablation_fullscan` | 2189 | `d7e4ff09ef4732e5534ff1c4b62a4ae0edfe3c3d951135cb01b3a9b75fd755b0` |
+| `output_results/ablation/no_forward_anchor_gap/fullscan/peak_valley_segments.csv` | `output_ablation_fullscan` | 126123 | `3a36bb8d855f2df9fae6766d846f1f37b78941fd92ced58e3dc071c702297e92` |
+| `output_results/ablation/no_forward_anchor_gap/fullscan/scan_summary.csv` | `output_ablation_fullscan` | 6146 | `4ab8277ebfe692c0e75a92b4c2c46f71be861cbe0a43d3ce47788d5d14841420` |
+| `output_results/ablation/no_forward_anchor_gap/fullscan/scan_summary.json` | `output_ablation_fullscan` | 16983 | `21202d8bfd09385327ea862f819cb389dcfc9e23b79f8846b48500e5c182eeb0` |
+| `output_results/ablation/no_forward_anchor_gap/fullscan/structure_metrics.csv` | `output_ablation_fullscan` | 3042 | `acee8d5c8740f41dd16bf3e6f743005e577d0c2ff208781c7215d8adc4e377d5` |
+| `output_results/ablation/no_forward_anchor_gap/fullscan/structure_metrics.json` | `output_ablation_fullscan` | 193614 | `ac3c0521636b02f3ea956450a40019cf9f3a2348189dfa4a322b4e67a2f286b0` |
+| `output_results/ablation/no_forward_anchor_gap/fullscan/vr_physical_response.csv` | `output_ablation_fullscan` | 12435 | `16595de4d79afac4497a5edc633c14ef3640fbde4eba6609984eed1bba8ab6ca` |
+| `output_results/ablation/no_forward_anchor_gap/fullscan/vr_physical_response.json` | `output_ablation_fullscan` | 80626 | `37d93e59b093a48f362371f278831bc2cf5dcf8947c37a7119aba18f303e1005` |
+| `output_results/ablation/selector_ablation_decision.json` | `output_ablation` | 137641 | `9dec9db95d8963993492b8f73273f31c45e7159873838582dbf7c1fdea7ac622` |
+| `output_results/main/fullscan/channel_degeneracy_summary.csv` | `output_main_fullscan` | 3044 | `9a2a03f433133c471ce83c1370a38a45dd9204d265a174333bbfec393c28f599` |
+| `output_results/main/fullscan/channel_degeneracy_summary.json` | `output_main_fullscan` | 8671 | `26ff651b7f7daaeabdd7e76ffc0a472a9360db34f8dcaf35640bc33059aa7213` |
+| `output_results/main/fullscan/class_structure_summary.csv` | `output_main_fullscan` | 9184 | `b2d901ed55895b59a9b0e3d5378cb673ef750d05a45b04965c34bf51b0587ec0` |
+| `output_results/main/fullscan/config_used.json` | `output_main_fullscan` | 2555 | `25b9352094a97971d6b0c38bff857c53fd3364ed13fff32c6be97f6087ecd7bd` |
+| `output_results/main/fullscan/curve_structure_summary.csv` | `output_main_fullscan` | 20038 | `2d48a80166b564e3f19101eafd86991ba4e8aefd11c56c9aa5d0c3bf4e131a36` |
+| `output_results/main/fullscan/decision.json` | `output_main_fullscan` | 57193 | `8f0c6ebc3a9a589799d62777f40c50f48d9d67c406d3ddb709390bfb8bd5082f` |
+| `output_results/main/fullscan/energy_cluster_table.csv` | `output_main_fullscan` | 479 | `07f783f01bfc9bb49ece12887c84f68d5586eeb24b33dcaf44825e8c793e52cc` |
+| `output_results/main/fullscan/energy_cluster_table.json` | `output_main_fullscan` | 2827 | `d46e0ad98cf0dfe2424f25aedceac44e66f00f8c93adbd5d4ecbf64f232eac09` |
+| `output_results/main/fullscan/forward_evidence.json` | `output_main_fullscan` | 3586 | `bcd88c9071fe7e8dfe18df7a5216ae3cc399bd37c31db3d3524d2f4cc5c0f1a4` |
+| `output_results/main/fullscan/forward_priors.json` | `output_main_fullscan` | 718 | `0cef4fed223c6e570eb5581ed1f937aedc808b0b28f860f2a10bf3f4ce929ec2` |
+| `output_results/main/fullscan/forward_reverse_consistency.csv` | `output_main_fullscan` | 1296 | `d5253defb5e77e8f7fa3e245768b819621eebf9f0dead984c5ea878cd3277d17` |
+| `output_results/main/fullscan/forward_reverse_consistency.json` | `output_main_fullscan` | 3864 | `e2dc2879546fd02febc02d638586f2800cbbab967dc5b37c93c4f3a3cb770c10` |
+| `output_results/main/fullscan/hyperopt_summary.csv` | `output_main_fullscan` | 1157 | `7cfd3cf8c9eb541038bf4a3aab07d006d0b109b69afe22ebbf91b79267c77bbc` |
+| `output_results/main/fullscan/hyperopt_summary.json` | `output_main_fullscan` | 175936 | `1be28a66e254485cae432595e7ed8b79d7b9f16bcfd46f0ffe171d6e9c58adb9` |
+| `output_results/main/fullscan/level_weight_diagnostics.csv` | `output_main_fullscan` | 2979 | `69f327e91d03babf936a43cea271eb7d805d1c5dd2869556e6d6a5be8941c401` |
+| `output_results/main/fullscan/level_weight_diagnostics.json` | `output_main_fullscan` | 7364 | `69a34cda689e3e0082a5134977c6fae07022b0c51e8efb09345fe466c8f65378` |
+| `output_results/main/fullscan/model_selection_table.csv` | `output_main_fullscan` | 2192 | `5a0bf8dde462ca82da6ee4f98aa4b7843342708b2ecaada582f235288df7f487` |
+| `output_results/main/fullscan/peak_valley_segments.csv` | `output_main_fullscan` | 126090 | `954f507af56748b2ff89fbccc0158083fbb4e3ee037c0745050ff9cd68126c87` |
+| `output_results/main/fullscan/production_run_summary.json` | `output_main_fullscan` | 68920 | `5af429815054a5c36e41f477d092173fe1e2128af995ca70d06aaadac8c42fc1` |
+| `output_results/main/fullscan/scan_summary.csv` | `output_main_fullscan` | 5929 | `a13568b4420bc896f638380fc54b37c5b43c828b5f69ddebb47c68ca88b4621b` |
+| `output_results/main/fullscan/scan_summary.json` | `output_main_fullscan` | 16772 | `26153ebb8065c9359cfc15955c3668b1c50a2b4473b0a43d2f7623c3602682ca` |
+| `output_results/main/fullscan/structure_metrics.csv` | `output_main_fullscan` | 3087 | `0e053bb3ff50df2455b9af9c4e219e88a18043ffd61edcc1343f6b46a8ae6ba5` |
+| `output_results/main/fullscan/structure_metrics.json` | `output_main_fullscan` | 193493 | `3c50b8a25148445cc4679698c4cf2b26851c32fc7f014716c3604fb083d33042` |
+| `output_results/main/fullscan/vr_physical_response.csv` | `output_main_fullscan` | 12360 | `9943769600421fe8826660d95a9313cf7fccdc52c8384c20f3d5368fd72f3ae7` |
+| `output_results/main/fullscan/vr_physical_response.json` | `output_main_fullscan` | 80471 | `4429669b7b84f6451addb5e5e47f3af03a434efce23cf82a212ea15b9ebb7b9a` |
+| `output_results/main/k1_full/prediction_points.csv` | `output_main_k1_full` | 53459 | `25673b67f4a2ae17e03cab2f14bfdb0f0c9badde6b2ce48fb5bcfff80181b560` |
+| `output_results/main/k_selected_full/prediction_points.csv` | `output_main_k_selected_full` | 53628 | `297dd6ec6ca32271e4d2fd355c31dd958341f06542a71f76ccc748209740239e` |
+| `output_results/main/paper_summary.json` | `output_main` | 538 | `65c37c89b7f30b44541b65816d77aeadd0b8137c8215a085ec51645e32a83493` |
+| `output_results/main/paper_summary.md` | `output_main` | 460 | `ed5eaa85123d70cb980063525ed0d2dcdd7fdc3da69e08852ff2bae311d5887e` |
+| `output_results/robustness/leave_one_vr_out/vr_0p0/fullscan/channel_degeneracy_summary.csv` | `output_robustness_fullscan` | 3112 | `bf8e235cf61788be1e947f9335e7bc01ed03d260e1c2d1997de7379ff42fd076` |
+| `output_results/robustness/leave_one_vr_out/vr_0p0/fullscan/channel_degeneracy_summary.json` | `output_robustness_fullscan` | 8787 | `a15602bcaf64f49a841483d973b30b6d14f6da03a378927edd1dd8cf5c8771c8` |
+| `output_results/robustness/leave_one_vr_out/vr_0p0/fullscan/class_structure_summary.csv` | `output_robustness_fullscan` | 7462 | `3567157edb8387ce6c9425dad6cc2352e4060ed90bddb323ba460b782c533a16` |
+| `output_results/robustness/leave_one_vr_out/vr_0p0/fullscan/config_used.json` | `output_robustness_fullscan` | 2590 | `9a069ae082f0e28399bf871cdcfb2a5ac046deadc75bcb215960840e69f5ab57` |
+| `output_results/robustness/leave_one_vr_out/vr_0p0/fullscan/curve_structure_summary.csv` | `output_robustness_fullscan` | 16021 | `b1a3a47acfcd01993a3554c96737c0dc4a1f4ecc6d3e93f2b85bfae5db9b2706` |
+| `output_results/robustness/leave_one_vr_out/vr_0p0/fullscan/decision.json` | `output_robustness_fullscan` | 27084 | `fc8a30127812f3f761079bd01bbf67801374de7b7a2d65beeea4cfa9a969388d` |
+| `output_results/robustness/leave_one_vr_out/vr_0p0/fullscan/energy_cluster_table.csv` | `output_robustness_fullscan` | 479 | `07f783f01bfc9bb49ece12887c84f68d5586eeb24b33dcaf44825e8c793e52cc` |
+| `output_results/robustness/leave_one_vr_out/vr_0p0/fullscan/energy_cluster_table.json` | `output_robustness_fullscan` | 2827 | `d46e0ad98cf0dfe2424f25aedceac44e66f00f8c93adbd5d4ecbf64f232eac09` |
+| `output_results/robustness/leave_one_vr_out/vr_0p0/fullscan/forward_reverse_consistency.csv` | `output_robustness_fullscan` | 1298 | `0cda5415f19850d326203ce41b0c551e7723cc4e0c53100f21c157f28a6eee2f` |
+| `output_results/robustness/leave_one_vr_out/vr_0p0/fullscan/forward_reverse_consistency.json` | `output_robustness_fullscan` | 3866 | `b3f78d7427d94eda984232bfec238102aa1ec5a3e579dc16ac2f1a8f9c5ec25f` |
+| `output_results/robustness/leave_one_vr_out/vr_0p0/fullscan/hyperopt_summary.csv` | `output_robustness_fullscan` | 1 | `01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b` |
+| `output_results/robustness/leave_one_vr_out/vr_0p0/fullscan/hyperopt_summary.json` | `output_robustness_fullscan` | 101 | `5edfa32ee2e2cbb9380ee5581c214c44f52b81dfc793e0c6f70ca364c5bfe6b8` |
+| `output_results/robustness/leave_one_vr_out/vr_0p0/fullscan/level_weight_diagnostics.csv` | `output_robustness_fullscan` | 3035 | `72c1f9ba2721f93c5d36a7daeee83115f3187526b02b9daadd5cb35c92254762` |
+| `output_results/robustness/leave_one_vr_out/vr_0p0/fullscan/level_weight_diagnostics.json` | `output_robustness_fullscan` | 7420 | `7bc7ab640fd22b44d1991b22c43a609bacd40d60040541e7beabc76e8205eefa` |
+| `output_results/robustness/leave_one_vr_out/vr_0p0/fullscan/model_selection_table.csv` | `output_robustness_fullscan` | 2242 | `23e3e44b8cda822ae869a92a9b1576cc4c03609c3a4b305ca76a9c6991330a53` |
+| `output_results/robustness/leave_one_vr_out/vr_0p0/fullscan/peak_valley_segments.csv` | `output_robustness_fullscan` | 104967 | `c29964506e94ddbb1e1a773944e3d1b9780de460e1d0ee3274e389bf50a249ac` |
+| `output_results/robustness/leave_one_vr_out/vr_0p0/fullscan/scan_summary.csv` | `output_robustness_fullscan` | 6226 | `6c4ac8c17aec6369896f38d250e72e2a0a1a003eafdf3f2dd685526e7397d962` |
+| `output_results/robustness/leave_one_vr_out/vr_0p0/fullscan/scan_summary.json` | `output_robustness_fullscan` | 17117 | `1835fa895d31baf254d08f0a457d1fc9f0d1b81ff966180464e21e50e4360e7a` |
+| `output_results/robustness/leave_one_vr_out/vr_0p0/fullscan/structure_metrics.csv` | `output_robustness_fullscan` | 3378 | `87e41f796c7aabaec21fdae1ab6b5f743e3800ed691a36440bca3bba931e9826` |
+| `output_results/robustness/leave_one_vr_out/vr_0p0/fullscan/structure_metrics.json` | `output_robustness_fullscan` | 157720 | `3bb741b60c614208b7ec9c1182c9796be2c00eef9f30ca4f7a32900afdad2dce` |
+| `output_results/robustness/leave_one_vr_out/vr_0p0/fullscan/vr_physical_response.csv` | `output_robustness_fullscan` | 9852 | `5eed465b8d817968c7eac8f7e961c4a33d96ba53c571fb7b883ee8d9398f1b3b` |
+| `output_results/robustness/leave_one_vr_out/vr_0p0/fullscan/vr_physical_response.json` | `output_robustness_fullscan` | 64546 | `503d27213c6739c4a622c4eb5962a35139b4ab113180a21a28d0a379592100b4` |
+| `output_results/robustness/leave_one_vr_out/vr_10p0/fullscan/channel_degeneracy_summary.csv` | `output_robustness_fullscan` | 3086 | `edacb61cb5dca0f4a4f71692257a574b15606975ec8ec9deae41823018115e83` |
+| `output_results/robustness/leave_one_vr_out/vr_10p0/fullscan/channel_degeneracy_summary.json` | `output_robustness_fullscan` | 8761 | `08f68d1f57587d63a6652c6dee07d6b4a786bb4feaf74b558b7a7aeedd577150` |
+| `output_results/robustness/leave_one_vr_out/vr_10p0/fullscan/class_structure_summary.csv` | `output_robustness_fullscan` | 7444 | `e4de47b9894a8862b60a59ea0915675d80153b1bde2b32357d80a01f7585cf3f` |
+| `output_results/robustness/leave_one_vr_out/vr_10p0/fullscan/config_used.json` | `output_robustness_fullscan` | 2592 | `59ed509011eba574556d983f88ea6d2ae096973ef204a08b35b771e17d2856af` |
+| `output_results/robustness/leave_one_vr_out/vr_10p0/fullscan/curve_structure_summary.csv` | `output_robustness_fullscan` | 16267 | `7ccd120adca5c9236bdc4bd0a5ddca3ac17447b1790f8300863dd915fea91a2f` |
+| `output_results/robustness/leave_one_vr_out/vr_10p0/fullscan/decision.json` | `output_robustness_fullscan` | 27044 | `6ff7360417c9c0a48f2f7756795fc639c1d909f9130e0505878686bb91189549` |
+| `output_results/robustness/leave_one_vr_out/vr_10p0/fullscan/energy_cluster_table.csv` | `output_robustness_fullscan` | 479 | `07f783f01bfc9bb49ece12887c84f68d5586eeb24b33dcaf44825e8c793e52cc` |
+| `output_results/robustness/leave_one_vr_out/vr_10p0/fullscan/energy_cluster_table.json` | `output_robustness_fullscan` | 2827 | `d46e0ad98cf0dfe2424f25aedceac44e66f00f8c93adbd5d4ecbf64f232eac09` |
+| `output_results/robustness/leave_one_vr_out/vr_10p0/fullscan/forward_reverse_consistency.csv` | `output_robustness_fullscan` | 1295 | `0fec654546fbd8d142fa2fc79204a4d8beecefb417a22bed7e255100d7cc925a` |
+| `output_results/robustness/leave_one_vr_out/vr_10p0/fullscan/forward_reverse_consistency.json` | `output_robustness_fullscan` | 3863 | `ff4325cb62059f7431a2ab0965c09c35dbb965c39a670ad3074f8be486afb37a` |
+| `output_results/robustness/leave_one_vr_out/vr_10p0/fullscan/hyperopt_summary.csv` | `output_robustness_fullscan` | 1 | `01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b` |
+| `output_results/robustness/leave_one_vr_out/vr_10p0/fullscan/hyperopt_summary.json` | `output_robustness_fullscan` | 101 | `5edfa32ee2e2cbb9380ee5581c214c44f52b81dfc793e0c6f70ca364c5bfe6b8` |
+| `output_results/robustness/leave_one_vr_out/vr_10p0/fullscan/level_weight_diagnostics.csv` | `output_robustness_fullscan` | 3009 | `4201ab13fdd798192dca48ff2f5350603b94989389915e5ec1ca8bc88c9d0d60` |
+| `output_results/robustness/leave_one_vr_out/vr_10p0/fullscan/level_weight_diagnostics.json` | `output_robustness_fullscan` | 7394 | `355ebb0ef8f6569320a448013143f7d7fb5c600e7a815116821bf38a848879f8` |
+| `output_results/robustness/leave_one_vr_out/vr_10p0/fullscan/model_selection_table.csv` | `output_robustness_fullscan` | 2235 | `b18f939d45d37cff8f84a96f2ffa67492991109631c56d659e4c7f42787bd8a2` |
+| `output_results/robustness/leave_one_vr_out/vr_10p0/fullscan/peak_valley_segments.csv` | `output_robustness_fullscan` | 101205 | `6cff4ebe9bebbead8155c271cc6aabe097eb15b18f1d56bde2d4107a21f9cef8` |
+| `output_results/robustness/leave_one_vr_out/vr_10p0/fullscan/scan_summary.csv` | `output_robustness_fullscan` | 6226 | `f3146035fc87cc2723230485d00a131b178608b018103c9e77399225d6c4dfd5` |
+| `output_results/robustness/leave_one_vr_out/vr_10p0/fullscan/scan_summary.json` | `output_robustness_fullscan` | 17117 | `6a1bf59b33a0ba3282962db9a5fbcfc5c590d75c5ff12bd57a99f68489430956` |
+| `output_results/robustness/leave_one_vr_out/vr_10p0/fullscan/structure_metrics.csv` | `output_robustness_fullscan` | 3081 | `68665a849067314cd5e9a36cabff823a30b1d3b0a0e50e5ac5c96cf28b99c2bf` |
+| `output_results/robustness/leave_one_vr_out/vr_10p0/fullscan/structure_metrics.json` | `output_robustness_fullscan` | 158001 | `3f4852c4fa1e2eb6875837badf48afdcb39e4959dfdbfa049ebf714e4ed4666d` |
+| `output_results/robustness/leave_one_vr_out/vr_10p0/fullscan/vr_physical_response.csv` | `output_robustness_fullscan` | 10032 | `3e2de15db938a9fc32b7301be3437d68b04ed6e1fdad7908e5083172be9e7fdc` |
+| `output_results/robustness/leave_one_vr_out/vr_10p0/fullscan/vr_physical_response.json` | `output_robustness_fullscan` | 64900 | `ce740085024cbf86cd9b948057a54e8be2830004340ade32c75e938a63c5520c` |
+| `output_results/robustness/leave_one_vr_out/vr_4p0/fullscan/channel_degeneracy_summary.csv` | `output_robustness_fullscan` | 3030 | `2d2c27bcaa54b9dcbc1731b85c36a92e7a37150df770510a1a9978a07135b7a2` |
+| `output_results/robustness/leave_one_vr_out/vr_4p0/fullscan/channel_degeneracy_summary.json` | `output_robustness_fullscan` | 8625 | `729f75a49264e181337fc78deb5289538e3efe71528031c65762e4f7daffc887` |
+| `output_results/robustness/leave_one_vr_out/vr_4p0/fullscan/class_structure_summary.csv` | `output_robustness_fullscan` | 7375 | `36f618bb6dd67dbffad046b6a960daa9f3233b0ffec8a18bf6be665a6d896dba` |
+| `output_results/robustness/leave_one_vr_out/vr_4p0/fullscan/config_used.json` | `output_robustness_fullscan` | 2590 | `d59c11e7a7edd08d0a274241ca85d3efabfcac881814b22f39cf6b6e786797a1` |
+| `output_results/robustness/leave_one_vr_out/vr_4p0/fullscan/curve_structure_summary.csv` | `output_robustness_fullscan` | 16177 | `124b501869e89d8badde12d6bfce1d316fb79d06d5045291b0bdd97af843e512` |
+| `output_results/robustness/leave_one_vr_out/vr_4p0/fullscan/decision.json` | `output_robustness_fullscan` | 26742 | `b29a2c968fd34ea34d04d0cf186a7691859b19b71f01720d98e5b5cf8ffdec20` |
+| `output_results/robustness/leave_one_vr_out/vr_4p0/fullscan/energy_cluster_table.csv` | `output_robustness_fullscan` | 479 | `07f783f01bfc9bb49ece12887c84f68d5586eeb24b33dcaf44825e8c793e52cc` |
+| `output_results/robustness/leave_one_vr_out/vr_4p0/fullscan/energy_cluster_table.json` | `output_robustness_fullscan` | 2827 | `d46e0ad98cf0dfe2424f25aedceac44e66f00f8c93adbd5d4ecbf64f232eac09` |
+| `output_results/robustness/leave_one_vr_out/vr_4p0/fullscan/forward_reverse_consistency.csv` | `output_robustness_fullscan` | 1289 | `cc655abcd547f05a2d2ab2ddc196051a1cfa3d8d60d61a00e63c6cc078213c20` |
+| `output_results/robustness/leave_one_vr_out/vr_4p0/fullscan/forward_reverse_consistency.json` | `output_robustness_fullscan` | 3857 | `79eaa70b456a6e4859c8ceaf40b168b3bdcac3c696eba58531136c32b72483bf` |
+| `output_results/robustness/leave_one_vr_out/vr_4p0/fullscan/hyperopt_summary.csv` | `output_robustness_fullscan` | 1 | `01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b` |
+| `output_results/robustness/leave_one_vr_out/vr_4p0/fullscan/hyperopt_summary.json` | `output_robustness_fullscan` | 101 | `5edfa32ee2e2cbb9380ee5581c214c44f52b81dfc793e0c6f70ca364c5bfe6b8` |
+| `output_results/robustness/leave_one_vr_out/vr_4p0/fullscan/level_weight_diagnostics.csv` | `output_robustness_fullscan` | 2980 | `47b2f70a5d26e06edff3b2e72678849a7694114d13b19d60c88c3fffd42254c8` |
+| `output_results/robustness/leave_one_vr_out/vr_4p0/fullscan/level_weight_diagnostics.json` | `output_robustness_fullscan` | 7365 | `9bfd322bb964c0f55c8ea53db6cd941c8b025bce6950cafa90d8060e1bf65d04` |
+| `output_results/robustness/leave_one_vr_out/vr_4p0/fullscan/model_selection_table.csv` | `output_robustness_fullscan` | 2160 | `d611d726d1a226904c6ed56b4f09c119ade59a9ddbf24e73530054cdd577824d` |
+| `output_results/robustness/leave_one_vr_out/vr_4p0/fullscan/peak_valley_segments.csv` | `output_robustness_fullscan` | 101010 | `3ebfbd1faaabbf89c71acd84e98144f8fc3470567930ada71e4318b83ba52cf3` |
+| `output_results/robustness/leave_one_vr_out/vr_4p0/fullscan/scan_summary.csv` | `output_robustness_fullscan` | 6138 | `255a480c0e10e082e41150f9c455e73fe25e7445e04deb361a8c3147d956ea85` |
+| `output_results/robustness/leave_one_vr_out/vr_4p0/fullscan/scan_summary.json` | `output_robustness_fullscan` | 16953 | `44020ac731a0fc25628474849f4bd0bd999c365fbc018c5fad2d1d4478133d31` |
+| `output_results/robustness/leave_one_vr_out/vr_4p0/fullscan/structure_metrics.csv` | `output_robustness_fullscan` | 3024 | `09631b7235dfc3b846e3776017496ae2afd62e11c1a380127f0a2414061f1743` |
+| `output_results/robustness/leave_one_vr_out/vr_4p0/fullscan/structure_metrics.json` | `output_robustness_fullscan` | 157639 | `46aeef5627d8ff3f589f3e95763a997108077020a3c747753c5181da86d66218` |
+| `output_results/robustness/leave_one_vr_out/vr_4p0/fullscan/vr_physical_response.csv` | `output_robustness_fullscan` | 9975 | `b71d8237ef4d47e83ece7f2ff3cf532af2cefe4c7fbf6fac81173dd3811adde8` |
+| `output_results/robustness/leave_one_vr_out/vr_4p0/fullscan/vr_physical_response.json` | `output_robustness_fullscan` | 64757 | `726dcf427d78e7794f3f8f1ebb3cbf45e88e991e308cf00224e8e9c59cbc1ba5` |
+| `output_results/robustness/leave_one_vr_out/vr_6p0/fullscan/channel_degeneracy_summary.csv` | `output_robustness_fullscan` | 3093 | `ba5b4726aef0979f9bc7f039d940a52460f548bceb0438d0520c97906d1f89d2` |
+| `output_results/robustness/leave_one_vr_out/vr_6p0/fullscan/channel_degeneracy_summary.json` | `output_robustness_fullscan` | 8752 | `c8f22294db0d6290bf32d9fc2e67bffb730a83764346379d815e315551200dbf` |
+| `output_results/robustness/leave_one_vr_out/vr_6p0/fullscan/class_structure_summary.csv` | `output_robustness_fullscan` | 7402 | `02e391ddf0cfc1b996aefe37a0a7acc1b0016fe28b5e7803f81f37f167d7beab` |
+| `output_results/robustness/leave_one_vr_out/vr_6p0/fullscan/config_used.json` | `output_robustness_fullscan` | 2590 | `0652d5bb3ae1c5e4db6c9a684bfd68dd439a649e65f9050663bd72f7fe2f2097` |
+| `output_results/robustness/leave_one_vr_out/vr_6p0/fullscan/curve_structure_summary.csv` | `output_robustness_fullscan` | 15964 | `e4183947cef673035b8d467a58ac6e05e3cd4353c4ca69993da6ca766e20aff1` |
+| `output_results/robustness/leave_one_vr_out/vr_6p0/fullscan/decision.json` | `output_robustness_fullscan` | 26990 | `27c7f47e49bbea36505f472a37bfed90fe97fad21ccd93a2b81abed93145b4d7` |
+| `output_results/robustness/leave_one_vr_out/vr_6p0/fullscan/energy_cluster_table.csv` | `output_robustness_fullscan` | 479 | `07f783f01bfc9bb49ece12887c84f68d5586eeb24b33dcaf44825e8c793e52cc` |
+| `output_results/robustness/leave_one_vr_out/vr_6p0/fullscan/energy_cluster_table.json` | `output_robustness_fullscan` | 2827 | `d46e0ad98cf0dfe2424f25aedceac44e66f00f8c93adbd5d4ecbf64f232eac09` |
+| `output_results/robustness/leave_one_vr_out/vr_6p0/fullscan/forward_reverse_consistency.csv` | `output_robustness_fullscan` | 1293 | `ebab8ec3dff93a526bc977f27f584c4c17e24a0d3fda59ae7c7dae01692a15ee` |
+| `output_results/robustness/leave_one_vr_out/vr_6p0/fullscan/forward_reverse_consistency.json` | `output_robustness_fullscan` | 3861 | `6d7d810e580e84c7b66fbab15beee70bebb79175060bdcfd76f6f1fe39c44412` |
+| `output_results/robustness/leave_one_vr_out/vr_6p0/fullscan/hyperopt_summary.csv` | `output_robustness_fullscan` | 1 | `01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b` |
+| `output_results/robustness/leave_one_vr_out/vr_6p0/fullscan/hyperopt_summary.json` | `output_robustness_fullscan` | 101 | `5edfa32ee2e2cbb9380ee5581c214c44f52b81dfc793e0c6f70ca364c5bfe6b8` |
+| `output_results/robustness/leave_one_vr_out/vr_6p0/fullscan/level_weight_diagnostics.csv` | `output_robustness_fullscan` | 3000 | `dfdc4aafc2beaab6f971ff9d4f9d42077d029992711aa78c694c6fec35fd5b85` |
+| `output_results/robustness/leave_one_vr_out/vr_6p0/fullscan/level_weight_diagnostics.json` | `output_robustness_fullscan` | 7385 | `78c20b4d623b56c4edc1aec05c905853f549c735056883e90cb36cd993bcd7ac` |
+| `output_results/robustness/leave_one_vr_out/vr_6p0/fullscan/model_selection_table.csv` | `output_robustness_fullscan` | 2212 | `b0923234d8d9f9b94149f9621666cf0f97008e638c005ac8a1df022f9f0b81f8` |
+| `output_results/robustness/leave_one_vr_out/vr_6p0/fullscan/peak_valley_segments.csv` | `output_robustness_fullscan` | 97590 | `a4297d9f7686ea22778024855638e430f75c9366d36bd67cadb390329808dc91` |
+| `output_results/robustness/leave_one_vr_out/vr_6p0/fullscan/scan_summary.csv` | `output_robustness_fullscan` | 6174 | `70c05b0deb5051761e4b46cc396e3c1dbbc26cc076faac474517eaaba7910032` |
+| `output_results/robustness/leave_one_vr_out/vr_6p0/fullscan/scan_summary.json` | `output_robustness_fullscan` | 17041 | `c070a50f9bb933cba4ca3dbf800033d290e6eca405b78ad934497eeed510de66` |
+| `output_results/robustness/leave_one_vr_out/vr_6p0/fullscan/structure_metrics.csv` | `output_robustness_fullscan` | 3348 | `4dffafbf036e6acbd9638e3ce3f8510f6db6ffcad8600bfd4020acf257860f2e` |
+| `output_results/robustness/leave_one_vr_out/vr_6p0/fullscan/structure_metrics.json` | `output_robustness_fullscan` | 157675 | `c49d56f6229a5825cd31a9d43f0076cb5d4cb3b7a5cfc0da127a6bc7fd01a869` |
+| `output_results/robustness/leave_one_vr_out/vr_6p0/fullscan/vr_physical_response.csv` | `output_robustness_fullscan` | 9936 | `c521ce67d25f045911425638e8546fd230ec926593fa9474555f17566d7109fd` |
+| `output_results/robustness/leave_one_vr_out/vr_6p0/fullscan/vr_physical_response.json` | `output_robustness_fullscan` | 64659 | `5ecead7e0d376a787931016532c0c3054eee1c1ba3f5f0b7296baf80a0f38903` |
+| `output_results/robustness/leave_one_vr_out/vr_8p0/fullscan/channel_degeneracy_summary.csv` | `output_robustness_fullscan` | 3080 | `69f6f18ae9b0e3c4d01a49b0b7f86db1d16634186b2a199dfcd17765aa768049` |
+| `output_results/robustness/leave_one_vr_out/vr_8p0/fullscan/channel_degeneracy_summary.json` | `output_robustness_fullscan` | 8723 | `2203ee583b97e9d025b1e70a9c782650e3e46afed1c94ae7a149b6dbfa0ed1dd` |
+| `output_results/robustness/leave_one_vr_out/vr_8p0/fullscan/class_structure_summary.csv` | `output_robustness_fullscan` | 7411 | `4846e6891839fb84411ff3beba1036f72f562abd5c75890b639e68a69f4fd39b` |
+| `output_results/robustness/leave_one_vr_out/vr_8p0/fullscan/config_used.json` | `output_robustness_fullscan` | 2590 | `b70c65b6e9adb030ba66ae473c57ea69c97eff99af43e6d41bf72607c88d561c` |
+| `output_results/robustness/leave_one_vr_out/vr_8p0/fullscan/curve_structure_summary.csv` | `output_robustness_fullscan` | 16240 | `612af41e284f8ef8537585d6d5cdf363cbbf4f9ca2b48d923f3e9d63755916f5` |
+| `output_results/robustness/leave_one_vr_out/vr_8p0/fullscan/decision.json` | `output_robustness_fullscan` | 26938 | `e83af22a9f2d7d0dcbba210d8151eea7a5da88996995d552482c9218bf3f5030` |
+| `output_results/robustness/leave_one_vr_out/vr_8p0/fullscan/energy_cluster_table.csv` | `output_robustness_fullscan` | 479 | `07f783f01bfc9bb49ece12887c84f68d5586eeb24b33dcaf44825e8c793e52cc` |
+| `output_results/robustness/leave_one_vr_out/vr_8p0/fullscan/energy_cluster_table.json` | `output_robustness_fullscan` | 2827 | `d46e0ad98cf0dfe2424f25aedceac44e66f00f8c93adbd5d4ecbf64f232eac09` |
+| `output_results/robustness/leave_one_vr_out/vr_8p0/fullscan/forward_reverse_consistency.csv` | `output_robustness_fullscan` | 1296 | `ba1f6ac2133a84c5aa2d3db7940ce852f8fc44bfa6201c5c0b31ca1b5ca97d96` |
+| `output_results/robustness/leave_one_vr_out/vr_8p0/fullscan/forward_reverse_consistency.json` | `output_robustness_fullscan` | 3864 | `2a282b7ab40a89cca2040152eb862e1788fb4d5f80b9544e795e4f68529059f6` |
+| `output_results/robustness/leave_one_vr_out/vr_8p0/fullscan/hyperopt_summary.csv` | `output_robustness_fullscan` | 1 | `01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b` |
+| `output_results/robustness/leave_one_vr_out/vr_8p0/fullscan/hyperopt_summary.json` | `output_robustness_fullscan` | 101 | `5edfa32ee2e2cbb9380ee5581c214c44f52b81dfc793e0c6f70ca364c5bfe6b8` |
+| `output_results/robustness/leave_one_vr_out/vr_8p0/fullscan/level_weight_diagnostics.csv` | `output_robustness_fullscan` | 3002 | `7e797ace696ac67f5c59ce9784fc9fb30b8f3d4ddd332b2fd7675777a8ab8f12` |
+| `output_results/robustness/leave_one_vr_out/vr_8p0/fullscan/level_weight_diagnostics.json` | `output_robustness_fullscan` | 7387 | `02b7969f97070bc06d37c0d84f01b122594027d9737c9b1887185db74a272d76` |
+| `output_results/robustness/leave_one_vr_out/vr_8p0/fullscan/model_selection_table.csv` | `output_robustness_fullscan` | 2202 | `3fba80b9281b38532c07d2da396f7f1948aa01926d6b748341cf3ff0fb2f770c` |
+| `output_results/robustness/leave_one_vr_out/vr_8p0/fullscan/peak_valley_segments.csv` | `output_robustness_fullscan` | 100872 | `1e9042c37dc0bf589d6c391c129cb55ffd474c8f120c37035e696c61a81f3811` |
+| `output_results/robustness/leave_one_vr_out/vr_8p0/fullscan/scan_summary.csv` | `output_robustness_fullscan` | 6164 | `dd8181bd7bf9391be28d0ad3b944b3422f9d69cd0c213efd451e98ff60581f67` |
+| `output_results/robustness/leave_one_vr_out/vr_8p0/fullscan/scan_summary.json` | `output_robustness_fullscan` | 17020 | `42d1e4dfe867cb0b386b284c06c557237f8b35eb920f2ce2c27a211e336a9a76` |
+| `output_results/robustness/leave_one_vr_out/vr_8p0/fullscan/structure_metrics.csv` | `output_robustness_fullscan` | 3057 | `d0b62127760726c911cfe028e5b8394391b6679593a8ac4cf6535dc0ee5a8554` |
+| `output_results/robustness/leave_one_vr_out/vr_8p0/fullscan/structure_metrics.json` | `output_robustness_fullscan` | 157853 | `0b8dff57a2d0b05148661d740a8c51f83b13d81bf87728cc583bde393c15ff7a` |
+| `output_results/robustness/leave_one_vr_out/vr_8p0/fullscan/vr_physical_response.csv` | `output_robustness_fullscan` | 10008 | `a9df0d79341a1a600cf503ff30f0cb5b4e3d6fba0a47a73f1dd4ec7bae838105` |
+| `output_results/robustness/leave_one_vr_out/vr_8p0/fullscan/vr_physical_response.json` | `output_robustness_fullscan` | 64841 | `657d97ee0357bd46839c0cf1bc4bbc82a72e602c9bb4cc8e3e69050933f058ff` |
+| `output_results/robustness/leave_one_vr_out_summary.csv` | `output_robustness` | 1415 | `034eb34a87e6467ad646ad3077dd9be0c0253c25a522de137340b9334e6d83b5` |
+| `output_results/robustness/leave_one_vr_out_summary.json` | `output_robustness` | 165084 | `a68b11c630e2a7f62b2b19c415a14a1c8bac84691576f3f109b71325615c7f55` |
+| `output_results/robustness/leave_one_vr_out_summary.md` | `output_robustness` | 407 | `43a5c8b30c0c684b94bcf4fb0673e0df3555880715d32358e239e4c7f51fba1a` |
+| `output_results/robustness/robustness_summary.json` | `output_robustness` | 4048 | `63af1bc0675ed2bb8837c58023358bacee7ce562ab87c8b91e0193b1ef489f4e` |
+| `output_results/robustness/robustness_summary.md` | `output_robustness` | 237 | `71c7d0094cadc38e7a40ee93288e8db8c3f7a667600ca436cb298119bdc90b01` |
+| `output_results/robustness/selector_weight_perturbation.csv` | `output_robustness` | 2072 | `a45c91d056e16b1710f62feb733e7402a44466e4a4db3ffaa1530159587c605a` |
+| `output_results/robustness/selector_weight_perturbation.json` | `output_robustness` | 705558 | `f4daa87ad7f59f1f87f8f2348cf70ec5cb788698955a39b1afd4e5da6429d799` |
+| `output_results/robustness/selector_weight_perturbation.md` | `output_robustness` | 111 | `ee3505a404e00849d9e4e07143f784899833c6780e083738edb9813ce2ecf012` |
+| `output_results/robustness/selector_weight_perturbation_summary.csv` | `output_robustness` | 53 | `b6a8a3cd7a5eedf3b9e55e4a2da6aa2a28f9bca412cd6dde666b72d0d5419147` |
+| `output_results/robustness/selector_weight_perturbation_summary.json` | `output_robustness` | 116 | `5f968562af83a3508ef30890a28af104c3f2782d52ae717aea07374dbefc1d8d` |
+| `output_results/sensitivity/prior_strength/prior_strength_channel_drift.csv` | `output_sensitivity_prior_strength` | 207218 | `1b72862dc80037f1fa9ec3d3f9018b6e2462ba524df13faff0b583991e4f7c72` |
+| `output_results/sensitivity/prior_strength/prior_strength_selection.csv` | `output_sensitivity_prior_strength` | 992 | `3dbfb6b492f5c91ba29b8813ea092948cebce04ce1e28597e4ceba3824651963` |
+| `output_results/sensitivity/prior_strength/prior_strength_summary.json` | `output_sensitivity_prior_strength` | 184963 | `42a91ff45b87348b0bc9a775d97c1e4d3252b74b94b6d69b136591c4cc708ce0` |
+| `output_results/sensitivity/residual_bootstrap_scale_check.csv` | `output_sensitivity` | 314 | `d85511148400cab8c768d8a559ef9ba30424345505c4c2afc29eb0ec91b9583f` |
+| `output_results/sensitivity/sensitivity_summary.json` | `output_sensitivity` | 636 | `001dd18b385ddf0d2f576fa0dbc63c421a1bcea04a485ae32e0f7ac0ead2c15a` |
+| `output_results/sensitivity/uncertainty/channel_uncertainty_anchor_matched.csv` | `output_sensitivity_uncertainty` | 1378 | `8ce7b61acdd1fcbae2fd8b795c5629800c5ffa45397c6b5f5426ee82ec91c59d` |
+| `output_results/sensitivity/uncertainty/channel_uncertainty_anchor_matched_samples.csv` | `output_sensitivity_uncertainty` | 277928 | `cd4ccf286134eb38190b4ac67d7d78caa3684e735689cc0012b0be454a2b7aef` |
+| `output_results/sensitivity/uncertainty/channel_uncertainty_conditional_k4.csv` | `output_sensitivity_uncertainty` | 958 | `e688589354a8975fe321f506f2956a57b7e85f06f581cff5ddd5ca1a173c9797` |
+| `output_results/sensitivity/uncertainty/channel_uncertainty_samples.csv` | `output_sensitivity_uncertainty` | 1693978 | `903be85fa1ec193e7461682493a9177afad5eff1d9d8ce1659986a981d34b436` |
+| `output_results/sensitivity/uncertainty/channel_uncertainty_summary.csv` | `output_sensitivity_uncertainty` | 958 | `e688589354a8975fe321f506f2956a57b7e85f06f581cff5ddd5ca1a173c9797` |
+| `output_results/sensitivity/uncertainty/channel_uncertainty_summary.json` | `output_sensitivity_uncertainty` | 710407 | `0845dd13fad2d8e6144a8d10e1df5c1ed92bf213970e5b27088aa2835e588fe7` |
+| `output_results/sensitivity/uncertainty/perturbed_input_manifest.csv` | `output_sensitivity_uncertainty` | 10582 | `d470de225aee971293101f8462be931bcb7f33ac8df93b4e041a3ffd408cf3cb` |
+| `output_results/sensitivity/uncertainty/uncertainty_selection_summary.csv` | `output_sensitivity_uncertainty` | 402 | `3821be2fefa23615e202dddf4f8e7c96c253ee81aea227a764b6571aa77d03a1` |
+| `run_records/k1_full/checkpoint_best.pt` | `run_record_k1_full` | 8735 | `6b68ead142e1233e8503d2a8557bc4b87112b3cfd10fdf091c35b438d7d1157c` |
+| `run_records/k1_full/checkpoint_last.pt` | `run_record_k1_full` | 68161 | `fbfb8c688676ca771ed8238eae5b6caad093c572f6bd19d0f237f28d3ff8d7d9` |
+| `run_records/k1_full/metrics_best.json` | `run_record_k1_full` | 27722 | `0bf49716bf6e0b35e41f3733fa5654e1f57e4626148415822eda838d9b292054` |
+| `run_records/k1_full/params_best.json` | `run_record_k1_full` | 1075 | `3ccb6990eddb985199ccf50f551b16a4e6a0ab5b1d964221cf3887eb008f6927` |
+| `run_records/k1_full/prediction_points.csv` | `run_record_k1_full` | 53459 | `25673b67f4a2ae17e03cab2f14bfdb0f0c9badde6b2ce48fb5bcfff80181b560` |
+| `run_records/k1_full/scorecard.json` | `run_record_k1_full` | 33323 | `1affd6657f4915018bc3f4dc6a56ad53b3d9689e42b6eb52a2a7f3ac088e7eae` |
+| `run_records/k1_full/status.json` | `run_record_k1_full` | 798 | `03fc341681565081c686333d3008b1da0d4496c1c03e3d6daf19dbac9f2d431e` |
+| `run_records/k1_full/train_log.csv` | `run_record_k1_full` | 87893 | `e50e9b9f6faad1aebd4bb2154b48ef206068e29e531b2e0afa9b923a97113a5d` |
+| `run_records/k_selected_full/checkpoint_best.pt` | `run_record_k_selected_full` | 8799 | `073eb0c81d3240f443162da2afb710f5c5770f8e7efa505528827bf1e7665224` |
+| `run_records/k_selected_full/checkpoint_last.pt` | `run_record_k_selected_full` | 68219 | `aecdee9daa4e20f0bba82baaff8c3818dbc4b4456f16efc11b4b42985a26163d` |
+| `run_records/k_selected_full/metrics_best.json` | `run_record_k_selected_full` | 27724 | `ca08986b522e0020e4c1f2260c7c210197fdee1758db609db0f7b73f16efdb35` |
+| `run_records/k_selected_full/params_best.json` | `run_record_k_selected_full` | 1340 | `4031ac6d4d7dc140220eb339ec5baa9de120da012d3f5312e99e148a167f0cae` |
+| `run_records/k_selected_full/prediction_points.csv` | `run_record_k_selected_full` | 53628 | `297dd6ec6ca32271e4d2fd355c31dd958341f06542a71f76ccc748209740239e` |
+| `run_records/k_selected_full/scorecard.json` | `run_record_k_selected_full` | 33791 | `281c971e955560cc74b15703013dec6c8f44fcc0360c6265556c2f2da5414d18` |
+| `run_records/k_selected_full/status.json` | `run_record_k_selected_full` | 796 | `a4b748876b89263d8c2b545f7638b24426d9df59f003a2cff12a84a94b7c5662` |
+| `run_records/k_selected_full/train_log.csv` | `run_record_k_selected_full` | 88276 | `599141ba93efdbaf36be3fa0a5dd6f2feb29a2ec015529bb1f8224974a833977` |

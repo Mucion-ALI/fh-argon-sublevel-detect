@@ -1,0 +1,11 @@
+analysis,selected_k,scenario_count,scenario_fraction
+noise_perturbation,4,20,0.6666666666666666
+noise_perturbation,7,9,0.3
+noise_perturbation,8,1,0.03333333333333333
+residual_bootstrap,5,10,0.3333333333333333
+residual_bootstrap,6,10,0.3333333333333333
+residual_bootstrap,7,5,0.16666666666666666
+residual_bootstrap,8,5,0.16666666666666666
+seed_jitter,4,1,1.0
+window_radius,4,3,0.6
+window_radius,8,2,0.4

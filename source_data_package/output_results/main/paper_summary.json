@@ -1,0 +1,15 @@
+{
+  "selected_k": 4,
+  "best_k_by_structure": 8,
+  "best_k_by_physical_response": 4,
+  "best_k_by_composite": 4,
+  "level_count": 8,
+  "selection_table_rows": 8,
+  "evidence_files": {
+    "decision": "./output/main/fullscan/decision.json",
+    "scan_summary": "./output/main/fullscan/scan_summary.csv",
+    "model_selection_table": "./output/main/fullscan/model_selection_table.csv",
+    "physical_response": "./output/main/fullscan/vr_physical_response.csv",
+    "structure_metrics": "./output/main/fullscan/structure_metrics.csv"
+  }
+}
